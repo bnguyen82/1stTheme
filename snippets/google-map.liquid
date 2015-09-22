@@ -1,0 +1,95 @@
+<!-- Google Map Script -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoRMxiPsqJ9SUuaK1KsCAjd3gqnecjlBw&amp;sensor=false"></script>
+<script type="text/javascript">
+
+  function initialize() {
+
+    // Create an array of styles.
+    var styles = [
+      {
+        stylers: [
+          { hue: "#63d0fd" },
+          { saturation: 0 }
+        ]
+      },{
+        featureType: "road",
+        elementType: "geometry",
+        stylers: [
+          { lightness: 100 },
+          { visibility: "simplified" }
+        ]
+      },{
+        featureType: "road",
+        elementType: "labels",
+        stylers: [
+          { visibility: "off" }
+        ]
+      }
+    ];
+
+    // Create a new StyledMapType object, passing it the array of styles,
+    // as well as the name to be displayed on the map type control.
+    var styledMap = new google.maps.StyledMapType(styles,
+    {name: "Styled Map"});
+
+
+          var mapOptions = {
+            zoom: 13,
+            center: new google.maps.LatLng({{ settings.google_lat }}, {{ settings.google_long }}),
+    mapTypeControlOptions: {
+      mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+    }
+    }
+    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+    //Associate the styled map with the MapTypeId and set it to display.
+    map.mapTypes.set('map_style', styledMap);
+    map.setMapTypeId('map_style');
+
+    setMarkers(map, places);
+  }
+
+  var places = [
+    ['{{ shop.name }}', {{ settings.google_lat }}, {{ settings.google_long }}, 1]
+  ];
+
+  function setMarkers(map, locations) {
+    // Add markers to the map
+    var image = {
+      url: 'img/marker.png',
+      // This marker is 40 pixels wide by 42 pixels tall.
+      size: new google.maps.Size(32, 40),
+      // The origin for this image is 0,0.
+      origin: new google.maps.Point(0,0),
+      // The anchor for this image is the base of the pin at 20,42.
+      anchor: new google.maps.Point(16, 35)
+    };
+
+    for (var i = 0; i < locations.length; i++) {
+      var place = locations[i];
+      var myLatLng = new google.maps.LatLng(place[1], place[2]);
+      var marker = new google.maps.Marker({
+        position: myLatLng,
+        map: map,
+        //icon: image,
+        title: place[0],
+        zIndex: place[3],
+        animation: google.maps.Animation.DROP
+      });
+
+      var contentString = "Some content";
+      google.maps.event.addListener(marker, "click", function() {
+        infowindow.setContent(this.html);
+        infowindow.open(map, this);
+      });
+    }
+  }
+
+  google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+<!-- ========== MAP START ========== -->
+    </div>
+    <div id="map-canvas"></div>
+    <div class="container">
+<!-- ========== MAP END ========== -->

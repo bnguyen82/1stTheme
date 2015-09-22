@@ -1,0 +1,23 @@
+{% unless grid_item_width %}
+  {% assign grid_item_width = '4' %}
+{% endunless %}
+
+<li class="col-sm-{{ grid_item_width }} element">
+  {% capture collection_title %}{{ collection.title | escape }}{% endcapture %}
+  <div class="product">
+    <div class="thumbnail">
+      <a href="{{ collection.url }}" title="Browse our {{ collection_title }} collection">
+        {% if collection.image %}
+          {{ collection.image.src | collection_img_url: 'medium' | img_tag: collection_title }}
+        {% else %}
+          {{ collection.products.first.featured_image | product_img_url: 'medium' | img_tag: collection_title }}
+        {% endif %}
+      </a>
+    </div>
+    <hr>
+    <div class="title">
+      <h3><a href="{{ collection.url }}" title="Browse our {{ collection_title }} collection">{{ collection.title }}</a></h3>
+      <p><small>({{ collection.all_products_count }} {{ collection.all_products_count | pluralize: 'sản phẩm', 'sản phẩm' }})</small></p>
+    </div>
+  </div>
+</li>

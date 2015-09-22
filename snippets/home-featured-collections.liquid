@@ -1,0 +1,30 @@
+<h2 class="align-center unbranded">{{ settings.featured_collections_title }}</h2>
+<div class="gap-40"></div>
+{% if linklists.featured-collections.links.size > 0 %}
+  <div class="products-carousel products-small products">    
+    <div class="carousel-prev">
+      <a class="prev"><i class="fa fa-angle-left"></i></a>
+    </div>
+    <div class="carousel-next">
+      <a class="next"><i class="fa fa-angle-right"></i></a>
+    </div>
+    <div class="carousel">
+      {% for link in linklists.featured-collections.links | limit:8 %}
+      <div>
+        <div class="product">
+          <div class="thumbnail">
+            <a href="{{ link.url }}" title="Xem danh sách {{ link.object.title | escape }} collection."><img src="{{ link.object.products.first.featured_image | product_img_url: 'large' }}" alt="{{ link.object.title | escape }}"></a>
+          </div>
+          <hr>
+          <div class="title">
+            <h3><a href="{{ link.url }}">{{ link.title }}</a></h3>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+{% else %}
+  Bạn cần vào phần quản trị {{ 'tạo menu' | link_to: '/admin/links' }} bao gồm liên kết đến các danh mục muốn hiển thị. Lưu ý, menu phải có tên <strong>Featured Collections</strong> hoặc đường dẫn menu là <strong>featured-collections</strong>.
+  <div class="gap-40"></div>
+{% endif %}

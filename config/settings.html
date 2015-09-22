@@ -1,0 +1,1375 @@
+<style>
+#content .section .col-md-3 { display: none }
+#content .col-md-9 { width: 100% }
+.setnd { border: 1px solid #eee; padding: 20px 0px}
+#tabs li {
+float: left;
+padding: 5px 20px;
+background: #eee;
+margin: 0px 5px;
+}
+.activeta { background: #272727  !important }
+.lala { border: 1px solid #272727  !important }
+#tabs-1 { display: block }
+#tabs { float: left }
+
+h2.heading.active {
+color: rgb(0, 0, 0);
+background:#F5FBFF;
+}
+.open h2.heading {
+     color: #fff  !important ;
+     background: #58B3F0  !important ;
+}
+.hd { font-size: 150% ; line-height: 1.8 }
+</style>
+<p class="hd">
+       Để chỉnh sửa các mục khác nhau, bạn có thể click vào tên từng mục để mở phần cần sửa. Sau khi chỉnh sửa, bạn nhấn nút Lưu ở góc phải màn hình để hoàn tất.
+</p>
+
+<fieldset class="test">
+	<legend> 1. Trang chủ</legend>
+	<div id="tabs-1" class="setnd col-sm-12">
+		<div class="col-sm-6"><img src="//hstatic.net/0/0/global/design/member/img_setting/4kids/home_t4.png" width="94%"style="float: right;">
+</div>
+		<div class="col-sm-6">
+			<!-- Page Layout -->
+			<fieldset>
+				<legend>1. Bố cục trang</legend>
+				<table>
+									<tr>
+										<td colspan="2">
+											<h3 class="heading">Bố cục tổng thể</h3>
+										</td>
+									</tr>
+									<tr>
+											<td colspan="2">
+												 <p> Bố cục dạng "boxed" nghĩa là các thành phần trong trang sẽ có chiều rộng nhất định, trong một khung trang. Bố cục dạng "wide" nghĩa là các thành phần trong trang sẽ có chiều rộng theo độ rộng của trình duyệt, không giới hạn.
+							</p>
+											</td>
+									</tr>
+									<tr>
+										<th>
+											<label for="site_layout">Bố cục trang</label>
+										</th>
+										<td>
+											<select name="site_layout" id="site_layout">
+												<option value='boxed'>Boxed</option>
+												<option value='wide' selected="selected">Wide</option>
+											</select>
+										</td>
+									</tr>
+								</table>
+			</fieldset>
+
+			<!-- home page -->
+			<fieldset>
+				<legend>2. Trang chủ</legend>
+				<table>
+<!-- Nội dung trang -->
+					<tr>
+						<td colspan="2">
+							<h3 class="heading">2.1 Nội dung trang</h3>
+						</td>
+					</tr>
+					<tr>
+						<th><label for="use_page_content">Hiển thị nội dung từ trang?</label></th>
+						<td>
+															<input type="checkbox" id="use_page_content" name="use_page_content" value="1" />
+														</td>
+					</tr>
+													<tr>
+														<th><label for="page_title">Chọn trang nội dung bạn muốn hiển thị ở đây?</label></th>
+														<td><select name="page_title" class="page" /></td>
+													</tr>
+<!-- Banner quảng cáo -->
+													<tr>
+														<td colspan="2">
+															<h3 class="heading">2.2 Banner quảng cáo</h3>
+														</td>
+													</tr>
+													<tr>
+														<th><label for="use_ad_banners">Hiển thị banner quảng cáo?</label></th>
+														<td>
+															<input type="checkbox" id="use_ad_banners" name="use_ad_banners" value="1" />
+														</td>
+													</tr>
+													<tr>
+														<th><label for="ad_banner_1_image">Hình ảnh banner quảng cáo 1</label></th>
+														<td>
+															<input type="file" id="ad_banner_1_image" name="banner-1.jpg" />
+														</td>
+													</tr>
+													<tr>
+														<th><label for="ad_banner_1_small_text">Chú thích banner quảng cáo 1 </label><small>1-3 từ</small></th>
+														<td>
+															<input type="text" class="text" id="ad_banner_1_small_text" name="ad_banner_1_small_text" value="Extreme" />
+														</td>
+													</tr>
+													<tr>
+														<th><label for="ad_banner_1_large_text">Mô tả banner quảng cáo 1 </label><small>1 từ</small></th>
+														<td>
+															<input type="text" class="text" id="ad_banner_1_large_text" name="ad_banner_1_large_text" value="Beauty" />
+														</td>
+													</tr>
+													<tr>
+														<th><label for="ad_banner_1_link">Liên kết Ad 1</label></th>
+														<td>
+															<input type="text" id="ad_banner_1_link" name="ad_banner_1_link" value="" />
+														</td>
+													</tr>
+													<tr>
+														<th><label for="ad_banner_2_image">Hình ảnh banner quảng cáo 2</label></th>
+														<td>
+															<input type="file" id="ad_banner_2_image" name="banner-2.jpg" />
+														</td>
+													</tr>
+													<tr>
+														<th><label for="ad_banner_2_small_text">Chú thích banner quảng cáo 2 </label><small>1-3 từ</small></th>
+														<td>
+															<input type="text" class="text" id="ad_banner_2_small_text" name="ad_banner_2_small_text" value="Save On" />
+														</td>
+													</tr>
+													<tr>
+														<th><label for="ad_banner_2_large_text">Mô tả banner quảng cáo 2 </label><small>1 từ</small></th>
+														<td>
+															<input type="text" class="text" id="ad_banner_2_large_text" name="ad_banner_2_large_text" value="Summer" />
+														</td>
+													</tr>
+													<tr>
+														<th><label for="ad_banner_2_link">Liên kết Ad 2</label></th>
+														<td>
+															<input type="text" id="ad_banner_2_link" name="ad_banner_2_link" value="" />
+														</td>
+													</tr>
+													<tr>
+														<th><label for="ad_banner_3_image">Hình ảnh banner quảng cáo 3</label></th>
+														<td>
+															<input type="file" id="ad_banner_3_image" name="banner-3.jpg" />
+														</td>
+													</tr>
+													<tr>
+														<th><label for="ad_banner_3_small_text">Chú thích banner quảng cáo 3 </label><small>1-3 từ</small></th>
+														<td>
+															<input type="text" class="text" id="ad_banner_3_small_text" name="ad_banner_3_small_text" value="Maternity" />
+														</td>
+													</tr>
+													<tr>
+														<th><label for="ad_banner_3_large_text">Mô tả banner quảng cáo 3 </label><small>1 từ</small></th>
+														<td>
+															<input type="text" class="text" id="ad_banner_3_large_text" name="ad_banner_3_large_text" value="Shopping" />
+														</td>
+													</tr>
+													<tr>
+														<th><label for="ad_banner_3_link">Liên kết Ad 3</label></th>
+														<td>
+															<input type="text" id="ad_banner_3_link" name="ad_banner_3_link" value="" />
+														</td>
+													</tr>
+<!-- Nhóm sản phẩm nổi bật -->
+													<tr>
+														<td colspan="2">
+															<h3 class="heading">2.3 Nhóm sản phẩm nổi bật</h3>
+														</td>
+													</tr>
+													<tr>
+														<th><label for="use_featured_collections">Hiển thị nhóm sản phẩm nổi bật?</label></th>
+														<td>
+															<input type="checkbox" id="use_featured_collections" name="use_featured_collections" value="1" />
+														</td>
+													</tr>
+													<tr>
+														<th><label for="featured_collections_title">Tiêu đề nhóm sản phẩm nổi bật</label></th>
+														<td><input type="text" id="featured_collections_title" name="featured_collections_title" value="Featured Collections" /></td>
+													</tr>
+
+<!-- Quảng cáo full-width -->
+													<tr>
+														<td colspan="2">
+															<h3 class="heading">2.4 Quảng cáo full-width</h3>
+														</td>
+													</tr>
+													<tr>
+														<th><label for="use_parallax_banner">Hiển thị banner quảng cáo full-width?</label></th>
+														<td>
+															<input type="checkbox" id="use_parallax_banner" name="use_parallax_banner" value="1" />
+														</td>
+													</tr>
+													<tr>
+														<th><label for="parallax_image">Hình ảnh banner quảng cáo full-width:</label></th>
+														<td>
+															<input type="file" id="parallax_image" name="parallax_image.jpg" />
+														</td>
+													</tr>
+													<tr>
+														<th><label for="parallax_image_text">Chú thích banner quảng cáo full-width:</label><small>5-8 từ.</small></th>
+														<td>
+															<input type="text" class="text" id="parallax_image_text" name="parallax_image_text" />
+														</td>
+													</tr>
+													<tr>
+														<th><label for="parallax_button_text">Chữ trên nút bấm của banner quảng cáo full-width:</label></th>
+														<td>
+															<input type="text" class="text" id="parallax_button_text" name="parallax_button_text" value="Shop Now" />
+														</td>
+													</tr>
+													<tr>
+														<th><label for="parallax_link">Liên kết của banner quảng cáo full-width</label></th>
+														<td>
+															<input type="text" id="parallax_link" name="parallax_link" value="" />
+														</td>
+													</tr>
+
+<!-- Sản phẩm nổi bật -->
+													<tr>
+														<td colspan="2">
+															<h3 class="heading">2.5 Sản phẩm nổi bật</h3>
+														</td>
+													</tr>
+													<tr>
+														<th><label for="use_featured_products">Hiển thị sản phẩm nổi bật?</label></th>
+														<td>
+															<input type="checkbox" id="use_featured_products" name="use_featured_products" value="1" />
+														</td>
+													</tr>
+													<tr>
+														<th><label for="featured_products_title">Tiêu đề phần sản phẩm nổi bật </label></th>
+														<td>
+															<input type="text" class="text" id="featured_products_title" name="featured_products_title" value="Featured Products" />
+														</td>
+													</tr>
+													<tr>
+														<th><label for="featured_collection">Nhóm sản phẩm của sản phẩm nổi bật</label></th>
+														<td><select name="featured_collection" id="featured_collection" class="collection" /></td>
+													</tr>
+
+<!-- Blog mới -->
+													<tr>
+														<td colspan="2">
+															<h3 class="heading">2.6 Blog mới</h3>
+														</td>
+													</tr>
+													<tr>
+														<th><label for="use_blog_entries">Hiển thị blog mới nhất trên trang chủ?</label></th>
+														<td>
+															<input type="checkbox" id="use_blog_entries" name="use_blog_entries" value="1" />
+														</td>
+													</tr>
+													<tr>
+														<th><label for="home_blog_title">Tiêu đề phần blog mới nhất </label></th>
+														<td>
+															<input type="text" class="text" id="home_blog_title" name="home_blog_title" value="Product Categories" />
+														</td>
+													</tr>
+													<tr>
+														<th><label for="blog_title">Chọn phần blog sẽ hiển thị các bài mới nhất?</label></th>
+														<td><select name="blog_title" class="blog" /></td>
+													</tr>
+													<tr>
+														<th><label for="home_number_of_entries">Số bài blog hiển thị?</label></th>
+														<td>
+															<select name="home_number_of_entries" id="home_number_of_entries">
+																<option value="1">1</option>
+																<option value="2">2</option>
+																<option value="3">3</option>
+																<option value="4">4</option>
+																<option value="5">5</option>
+																<option value="6">6</option>
+															</select>
+														</td>
+													</tr>
+													<tr>
+														<th><label for="home_entry_format">Bố cục phần blog?</label></th>
+														<td>
+															<select name="home_entry_format" id="home_entry_format">
+																<option value="2-col">2 Cột</option>
+																<option value="3-col">3 Cột</option>
+																<option value="4-col">4 Cột</option>
+															</select>
+														</td>
+													</tr>
+												</table>
+			</fieldset>
+
+			<!-- Header -->
+			<fieldset>
+								<legend>3. Phần đầu trang (Header)</legend>
+								<table>
+									<tr>
+										<td><label for="use_logo">Dùng logo riêng</label></td>
+										<td><input type="checkbox" id="use_logo" name="use_logo" /></td>
+									</tr>
+									<tr>
+										<th>
+											<label for="logo_image">Upload logo riêng</label>
+											<p>Kích thước tối đa: 450px x 200px</p>
+										</th>
+										<td><input type="file" name="logo.png" id="logo_image" data-max-width="450" data-max-height="200" /></td>
+									</tr>
+									<tr>
+										<td><label for="favicon">Favicon (16px x 16px)</label><p>Biểu tượng nhỏ nằm kế bên liên kết website trên thanh đường dẫn của trình duyệt</p></td>
+										<td>
+											<input type="file" id="favicon" name="favicon.png" data-max-width="16" data-max-height="16" /> <br />
+											<br />
+										</td>
+									</tr>
+								</table>
+							</fieldset>
+
+		 <!-- Slide -->
+		<fieldset>
+			<legend> 4. Trình chiếu</legend>  
+			<table>
+				<tr>
+													<th><label for="use_slider">Hiển thị banner slide ở trang chủ?</label></th>
+													<td>
+														<input type="checkbox" id="use_slider" name="use_slider" value="1" />
+													</td>
+												</tr>
+												<tr>
+													<td colspan="2">
+														<h3>Hình ảnh banner</h3>
+															<p>Hình ảnh sẽ tự động tối ưu để thích hợp bố cục trang. Để hình ảnh hiển thị đẹp nhất, bạn nên chọn hình ảnh có chiều ngang trên 1400px.</p>
+												</tr> 
+															<tr>
+																<td colspan="2">
+																	<h3 class="heading">Hình ảnh banner 1</h3>
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_1_active">Dùng Hình ảnh banner 1?</label></th>
+																<td>
+																	<input type="checkbox" id="slideshow_1_active" name="slideshow_1_active" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_1">Hình ảnh banner 1</label></th>
+																<td>
+																	<input type="file" id="slideshow_1" name="slideshow_1.jpg" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_1_alt">Thẻ Alt của Thẻ ALT của Hình ảnh banner 1</label></th>
+																<td>
+																	<input type="text" class="text" id="slideshow_1_alt" name="slideshow_1_alt" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_1_pattern">Sử dụng hình ảnh pattern trên Hình ảnh banner 1</label></th>
+																<td>
+																	<input type="checkbox" id="slideshow_1_pattern" name="slideshow_1_pattern" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_1_caption_active">Sử dụng mô tả trên Hình ảnh banner 1?</label></th>
+																<td>
+																	<input type="checkbox" id="slideshow_1_caption_active" name="slideshow_1_caption_active" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_1_title">Tiêu đề Hình ảnh banner 1 </label></th>
+																<td>
+																	<input type="text" class="text" id="slideshow_1_title" name="slideshow_1_title" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_1_subtitle">Tiêu đề phụ Hình ảnh banner 1 </label></th>
+																<td>
+																	<textarea type="text" class="text" id="slideshow_1_subtitle" name="slideshow_1_subtitle" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_1_button_text">Hình ảnh banner 1 Button Text:</label></th>
+																<td>
+																	<input type="text" class="text" id="slideshow_1_button_text" name="slideshow_1_button_text" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_1_link">Liên kết Hình ảnh banner 1</label></th>
+																<td>
+																	<input type="text" id="slideshow_1_link" name="slideshow_1_link" value="" />
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<h3 class="heading">Hình ảnh banner 2</h3>
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_2_active">Dùng Hình ảnh banner 2?</label></th>
+																<td>
+																	<input type="checkbox" id="slideshow_2_active" name="slideshow_2_active" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_2">Hình ảnh banner 2</label></th>
+																<td>
+																	<input type="file" id="slideshow_2" name="slideshow_2.jpg" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_2_alt">Thẻ Alt của Hình ảnh banner 2</label></th>
+																<td>
+																	<input type="text" class="text" id="slideshow_2_alt" name="slideshow_2_alt" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_2_pattern">Sử dụng hình ảnh pattern trên Hình ảnh banner 2</label></th>
+																<td>
+																	<input type="checkbox" id="slideshow_2_pattern" name="slideshow_2_pattern" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_2_caption_active">Sử dụng mô tả trên Hình ảnh banner 2?</label></th>
+																<td>
+																	<input type="checkbox" id="slideshow_2_caption_active" name="slideshow_2_caption_active" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_2_title">Tiêu đề Hình ảnh banner 2 </label></th>
+																<td>
+																	<input type="text" class="text" id="slideshow_2_title" name="slideshow_2_title" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_2_subtitle">Tiêu đề phụ Hình ảnh banner 2 </label></th>
+																<td>
+																	<textarea type="text" class="text" id="slideshow_2_subtitle" name="slideshow_2_subtitle" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_2_button_text">Hình ảnh banner 2 Button Text:</label></th>
+																<td>
+																	<input type="text" class="text" id="slideshow_2_button_text" name="slideshow_2_button_text" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_2_link">Liên kết Hình ảnh banner 2</label></th>
+																<td>
+																	<input type="text" id="slideshow_2_link" name="slideshow_2_link" value="" />
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<h3 class="heading">Hình ảnh banner 3</h3>
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_3_active">Dùng Hình ảnh banner 3?</label></th>
+																<td>
+																	<input type="checkbox" id="slideshow_3_active" name="slideshow_3_active" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_3">Hình ảnh banner 3</label></th>
+																<td>
+																	<input type="file" id="slideshow_3" name="slideshow_3.jpg" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_3_alt">Thẻ Alt của Hình ảnh banner 3</label></th>
+																<td>
+																	<input type="text" class="text" id="slideshow_3_alt" name="slideshow_3_alt" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_3_pattern">Sử dụng hình ảnh pattern trên Hình ảnh banner 3</label></th>
+																<td>
+																	<input type="checkbox" id="slideshow_3_pattern" name="slideshow_3_pattern" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_3_caption_active">Sử dụng mô tả trên Hình ảnh banner 3?</label></th>
+																<td>
+																	<input type="checkbox" id="slideshow_3_caption_active" name="slideshow_3_caption_active" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_3_title">Tiêu đề Hình ảnh banner 3 </label></th>
+																<td>
+																	<input type="text" class="text" id="slideshow_3_title" name="slideshow_3_title" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_3_subtitle">Tiêu đề phụ Hình ảnh banner 3 </label></th>
+																<td>
+																	<textarea type="text" class="text" id="slideshow_3_subtitle" name="slideshow_3_subtitle" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_3_button_text">Hình ảnh banner 3 Button Text:</label></th>
+																<td>
+																	<input type="text" class="text" id="slideshow_3_button_text" name="slideshow_3_button_text" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_3_link">Liên kết Hình ảnh banner 3</label></th>
+																<td>
+																	<input type="text" id="slideshow_3_link" name="slideshow_3_link" value="" />
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<h3 class="heading">Hình ảnh banner 4</h3>
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_4_active">Dùng Hình ảnh banner 4?</label></th>
+																<td>
+																	<input type="checkbox" id="slideshow_4_active" name="slideshow_4_active" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_4">Hình ảnh banner 4</label></th>
+																<td>
+																	<input type="file" id="slideshow_4" name="slideshow_4.jpg" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_4_alt">Thẻ Alt của Hình ảnh banner 4</label></th>
+																<td>
+																	<input type="text" class="text" id="slideshow_4_alt" name="slideshow_4_alt" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_4_pattern">Sử dụng hình ảnh pattern trên Hình ảnh banner 4</label></th>
+																<td>
+																	<input type="checkbox" id="slideshow_4_pattern" name="slideshow_4_pattern" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_4_caption_active">Sử dụng mô tả trên Hình ảnh banner 4?</label></th>
+																<td>
+																	<input type="checkbox" id="slideshow_4_caption_active" name="slideshow_4_caption_active" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_4_title">Tiêu đề Hình ảnh banner 4 </label></th>
+																<td>
+																	<input type="text" class="text" id="slideshow_4_title" name="slideshow_4_title" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_4_subtitle">Tiêu đề phụ Hình ảnh banner 4 </label></th>
+																<td>
+																	<textarea type="text" class="text" id="slideshow_4_subtitle" name="slideshow_4_subtitle" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_4_button_text">Hình ảnh banner 4 Button Text:</label></th>
+																<td>
+																	<input type="text" class="text" id="slideshow_4_button_text" name="slideshow_4_button_text" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_4_link">Liên kết Hình ảnh banner 4</label></th>
+																<td>
+																	<input type="text" id="slideshow_4_link" name="slideshow_4_link" value="" />
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<h3 class="heading">Hình ảnh banner 5</h3>
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_5_active">Dùng Hình ảnh banner 5?</label></th>
+																<td>
+																	<input type="checkbox" id="slideshow_5_active" name="slideshow_5_active" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_5">Hình ảnh banner 5</label></th>
+																<td>
+																	<input type="file" id="slideshow_5" name="slideshow_5.jpg" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_5_alt">Thẻ Alt của Hình ảnh banner 5</label></th>
+																<td>
+																	<input type="text" class="text" id="slideshow_5_alt" name="slideshow_5_alt" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_5_pattern">Sử dụng hình ảnh pattern trên Hình ảnh banner 5</label></th>
+																<td>
+																	<input type="checkbox" id="slideshow_5_pattern" name="slideshow_5_pattern" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_5_caption_active">Sử dụng mô tả trên Hình ảnh banner 5?</label></th>
+																<td>
+																	<input type="checkbox" id="slideshow_5_caption_active" name="slideshow_5_caption_active" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_5_title">Tiêu đề Hình ảnh banner 5 </label></th>
+																<td>
+																	<input type="text" class="text" id="slideshow_5_title" name="slideshow_5_title" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_5_subtitle">Tiêu đề phụ Hình ảnh banner 5 </label></th>
+																<td>
+																	<textarea type="text" class="text" id="slideshow_5_subtitle" name="slideshow_5_subtitle" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_5_button_text">Hình ảnh banner 5 Button Text:</label></th>
+																<td>
+																	<input type="text" class="text" id="slideshow_5_button_text" name="slideshow_5_button_text" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_5_link">Liên kết Hình ảnh banner 5</label></th>
+																<td>
+																	<input type="text" id="slideshow_5_link" name="slideshow_5_link" value="" />
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<h3 class="heading">Hình ảnh banner 6</h3>
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_6_active">Dùng Hình ảnh banner 6?</label></th>
+																<td>
+																	<input type="checkbox" id="slideshow_6_active" name="slideshow_6_active" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_6">Hình ảnh banner 6</label></th>
+																<td>
+																	<input type="file" id="slideshow_6" name="slideshow_6.jpg" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_6_alt">Thẻ Alt của Hình ảnh banner 6</label></th>
+																<td>
+																	<input type="text" class="text" id="slideshow_6_alt" name="slideshow_6_alt" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_6_pattern">Sử dụng hình ảnh pattern trên Hình ảnh banner 6</label></th>
+																<td>
+																	<input type="checkbox" id="slideshow_6_pattern" name="slideshow_6_pattern" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_6_caption_active">Sử dụng mô tả trên Hình ảnh banner 6?</label></th>
+																<td>
+																	<input type="checkbox" id="slideshow_6_caption_active" name="slideshow_6_caption_active" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_6_title">Tiêu đề Hình ảnh banner 6 </label></th>
+																<td>
+																	<input type="text" class="text" id="slideshow_6_title" name="slideshow_6_title" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_6_subtitle">Tiêu đề phụ Hình ảnh banner 6 </label></th>
+																<td>
+																	<textarea type="text" class="text" id="slideshow_6_subtitle" name="slideshow_6_subtitle" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_6_button_text">Hình ảnh banner 6 Button Text:</label></th>
+																<td>
+																	<input type="text" class="text" id="slideshow_6_button_text" name="slideshow_6_button_text" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_6_link">Liên kết Hình ảnh banner 6</label></th>
+																<td>
+																	<input type="text" id="slideshow_6_link" name="slideshow_6_link" value="" />
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2">
+																	<h3 class="heading">Hình ảnh banner 7</h3>
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_7_active">Dùng Hình ảnh banner 7?</label></th>
+																<td>
+																	<input type="checkbox" id="slideshow_7_active" name="slideshow_7_active" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_7">Hình ảnh banner 7</label></th>
+																<td>
+																	<input type="file" id="slideshow_7" name="slideshow_7.jpg" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_7_alt">Thẻ Alt của Hình ảnh banner 7</label></th>
+																<td>
+																	<input type="text" class="text" id="slideshow_7_alt" name="slideshow_7_alt" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_7_pattern">Sử dụng hình ảnh pattern trên Hình ảnh banner 7</label></th>
+																<td>
+																	<input type="checkbox" id="slideshow_7_pattern" name="slideshow_7_pattern" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_7_caption_active">Sử dụng mô tả trên Hình ảnh banner 7?</label></th>
+																<td>
+																	<input type="checkbox" id="slideshow_7_caption_active" name="slideshow_7_caption_active" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_7_title">Tiêu đề Hình ảnh banner 7 </label></th>
+																<td>
+																	<input type="text" class="text" id="slideshow_7_title" name="slideshow_7_title" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_7_subtitle">Tiêu đề phụ Hình ảnh banner 7 </label></th>
+																<td>
+																	<textarea type="text" class="text" id="slideshow_7_subtitle" name="slideshow_7_subtitle" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_7_button_text">Hình ảnh banner 7 Button Text:</label></th>
+																<td>
+																	<input type="text" class="text" id="slideshow_7_button_text" name="slideshow_7_button_text" />
+																</td>
+															</tr>
+															<tr>
+																<th><label for="slideshow_7_link">Liên kết Hình ảnh banner 7</label></th>
+																<td>
+																	<input type="text" id="slideshow_7_link" name="slideshow_7_link" value="" />
+																</td>
+															</tr>
+
+			</table>       
+		</fieldset>
+
+			<!-- Footer -->
+			<fieldset>
+								<legend>5. Phần chân trang (Footer)</legend>
+								<table>
+									<tr>
+										<th>
+											<label for="footer_1_heading">4.1 Tiêu đề Cột 1</label>
+										</th>
+										<td colspan="2"><input type="text" id="footer_1_heading" name="footer_1_heading" size="50" style="width:135px" value="Menu" /></td>
+									</tr>
+									<tr>
+										<th><label for="footer_linklist_1">Menu hiển thị ở Cột 1</label></th>
+										<td colspan="2"><select name="footer_linklist_1" class="linklist" /></td>
+									</tr>
+									<tr>
+										<th>
+											<label for="footer_2_heading">4.2 Tiêu đề Cột 2</label>
+										</th>
+										<td colspan="2"><input type="text" id="footer_2_heading" name="footer_2_heading" size="50" style="width:135px" value="Shop" /></td>
+									</tr>
+									<tr>
+										<th><label for="footer_linklist_2">Menu hiển thị ở Cột 2</label></th>
+										<td colspan="2"><select name="footer_linklist_2" class="linklist" style="width:135px" /></td>
+									</tr>
+									<tr>
+										<th>
+											<label for="footer_3_heading">4.3 Tiêu đề Cột 3</label>
+										</th>
+										<td colspan="2"><input type="text" id="footer_3_heading" name="footer_3_heading" size="50" style="width:135px" value="About Us" /></td>
+									</tr>
+									<tr>
+										<th><label for="footer_3_text">Nội dung Cột 1</label></th>
+										<td colspan="2">
+											<textarea style="width:250px" type="text" class="text" id="footer_3_text" name="footer_3_text" />
+										</td>
+									</tr>
+									<tr>
+										<th><label for="footer_display_social">Hiển thị các biểu tượng social media?</label></th>
+										<td colspan="2"><input type="checkbox" id="footer_display_social" name="footer_display_social" value="1" /></td>
+									</tr>
+									<tr>
+										<th>
+											<label for="newsletter_heading">4.4 Tiêu đề Cột 4</label>
+										</th>
+										<td colspan="2"><input type="text" id="newsletter_heading" name="newsletter_heading" size="50" style="width:135px" value="Stay in Touch" /></td>
+									</tr>
+									<tr>
+										<th><label for="newsletter_text">Nội dung phần đăng ký email ở Cột 4</label></th>
+										<td colspan="2">
+											<textarea style="width:250px" type="text" class="text" id="newsletter_text" name="newsletter_text" />
+										</td>
+									</tr>
+									<tr>
+										<th><label for="mailing_list_form_action">MailChimp Form Action URL</label></th>
+										<td><input type="text" id="mailing_list_form_action" name="mailing_list_form_action" value="" /></td>
+									</tr>
+									<tr>
+										<td></td>
+										<td><a href="http://www.haravan.com/huongdan/huong-dan-su-dung-tools/cach-su-dung-mailchimp/" target="_blank">Tôi có thể tìm thấy liên kết này ở đâu</a></td>							
+									</tr>
+									<tr>
+										<td colspan="3">
+											4.5 Phương thức thanh toán
+										</td>
+									</tr>
+									<tr>
+										<th><label for="show_payment_methods">Hiển thị phương thức thanh toán?</label></th>
+										<td><input type="checkbox" id="show_payment_methods" name="show_payment_methods" /></td>
+									</tr>
+								</table>
+								<table>
+									<tr>
+										<td colspan="3">
+											<h3 class="heading">Chọn phương thức thanh toán hiển thị:</h3>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<input type="checkbox" id="show_amex" name="show_amex" value="1" checked="checked" />
+											<label for="show_amex">American Express</label>
+										</td>
+										<td>
+											<input type="checkbox" id="show_discover" name="show_discover" value="1" checked="checked" />
+											<label for="show_discover">Discover</label>
+										</td>
+										<td>
+											<input type="checkbox" id="show_visa" name="show_visa" value="1" checked="checked" />
+											<label for="show_visa">Visa</label>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<input type="checkbox" id="show_mastercard" name="show_mastercard" value="1" checked="checked" />
+											<label for="show_mastercard">Mastercard</label>
+										</td>
+										<td>
+											<input type="checkbox" id="show_maestro" name="show_maestro" value="1" checked="checked" />
+											<label for="show_maestro">Maestro</label>
+										</td>
+										<td>
+											<input type="checkbox" id="show_cirrus" name="show_cirrus" value="1" checked="checked" />
+											<label for="show_cirrus">Cirrus</label>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<input type="checkbox" id="show_paypal" name="show_paypal" value="1" checked="checked" />
+											<label for="show_paypal">Paypal</label>
+										</td>
+										<td>
+											<input type="checkbox" id="show_google" name="show_google" value="1" checked="checked" />
+											<label for="show_google">Google Wallet</label>
+										</td>
+										<td>
+											<input type="checkbox" id="show_bitcoin" name="show_bitcoin" value="1" checked="checked" />
+											<label for="show_bitcoin">Bitcoin</label>
+										</td>
+									</tr>
+								</table>
+							</fieldset>
+
+			<!-- Search Page -->
+			<fieldset>
+								<legend>6. Tìm kiếm</legend>
+								<table>
+									<tr>
+										<th><label for="search_results">Hiển thị ở trang tìm kiếm</label></th>
+										<td>
+											<select name="search_results" id="search_results">
+												<option value="products-grid" selected="selected">Sản phẩm dạng lưới (grid)</option>
+												<option value="products-list">Sản phẩm dạng liệt kê (list)</option>
+												<option value="everything">Tất cả</option>
+											</select>
+										</td>
+									</tr>
+								</table>
+							</fieldset>
+
+		<!-- Social Media -->
+			<fieldset>
+								<legend>7. Social Media</legend>
+								<table>
+									<tr>
+										<td colspan="2">
+											<h3 class="heading">Liên kết Social media</h3>
+										</td>
+									</tr>
+									<tr>
+										 <td colspan="2">
+												<p>Các biểu tượng social media xuất hiện xuyên suốt trong website.</p>
+										 </td>
+									</tr>
+									<tr>
+										<td><label for="twitter_link">Liên kết Twitter </td>
+										<td colspan="2"><input type="url" id="twitter_link" name="twitter_link" size="50" /></td>
+									</tr>
+									<tr>
+										<td><label for="facebook_link">Liên kết Facebook </td>
+										<td colspan="2"><input type="url" id="facebook_link" name="facebook_link" size="50" /></td>
+									</tr>
+									<tr>
+										<td><label for="pinterest_link">Liên kết Pinterest </td>
+										<td colspan="2"><input type="url" id="pinterest_link" name="pinterest_link" size="50" /></td>
+									</tr>
+									<tr>
+										<td><label for="google_plus_link">Liên kết Google Plus </td>
+										<td colspan="2"><input type="url" id="google_plus_link" name="google_plus_link" size="50" /></td>
+									</tr>
+									<tr>
+										<td><label for="instagram_link">Liên kết Instagram </td>
+										<td colspan="2"><input type="url" id="instagram_link" name="instagram_link" size="50" /></td>
+									</tr>
+									<tr>
+										<td><label for="tumblr_link">Liên kết Tumblr </td>
+										<td colspan="2"><input type="url" id="tumblr_link" name="tumblr_link" size="50" /></td>
+									</tr>
+									<tr>
+										<td><label for="youtube_link">Liên kết YouTube </td>
+										<td colspan="2"><input type="url" id="youtube_link" name="youtube_link" size="50" /></td>
+									</tr>
+									<tr>
+										<td><label for="vimeo_link">Liên kết Vimeo </td>
+										<td colspan="2"><input type="url" id="vimeo_link" name="vimeo_link" size="50" /></td>
+									</tr>
+									<tr>
+										<td><label for="fancy_link">Liên kết Fancy </td>
+										<td colspan="2"><input type="url" id="fancy_link" name="fancy_link" size="50" /></td>
+									</tr>
+								</table>
+							</fieldset>
+
+			<!-- Colors and Backgrounds -->
+			<fieldset>
+								<legend>8. Màu sắc và hình nền</legend>
+								<table>
+									<tr>
+										<td colspan="2">
+											<h3 class="heading">Các màu sắc chung</h3>
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<label for="primary_color">Màu sắc chính</label>
+											<p>Màu sắc của các thành phần chính trên website</p>
+										</th>
+										<td><input id="primary_color" name="primary_color" class="color" type="text" value="#63d0fd" /></td>
+									</tr>
+									<tr>
+										<td colspan="2">
+											<h3 class="heading">Màu chữ và màu nền</h3>
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<label for="body_background_color">Màu nền phần nội dung chính</label><p>Chỉ áp dụng khi dùng bố cục trang là "boxed"</p>
+										</th>
+										<td><input id="body_background_color" name="body_background_color" class="color" type="text" value="#ffffff" /></td>
+									</tr>
+									<tr>
+										<th><label for="use_custom_bg_image">Sử dụng hình nền?</label><p>Chỉ áp dụng khi dùng bố cục trang là "boxed"</p></th>
+										<td>
+											<input type="checkbox" id="use_custom_bg_image" name="use_custom_bg_image" value="1" />
+										</td>
+									</tr>
+									<tr>
+										<th><label for="custom_bg_image">Hình nền</label><p>Hình nền sẽ nằm giữa trang và không lặp lại.</p></th>
+										<td>
+											<input type="file" id="custom_bg_image" name="custom_bg.jpg" />
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<label for="body_text_color">Màu chữ nội dung</label>
+										</th>
+										<td><input id="body_text_color" name="body_text_color" class="color" type="text" value="#9a9a9a" /></td>
+									</tr>
+									<tr>
+										<td colspan="2">
+											<h3 class="heading">Thanh top bar (đầu trang)</h3>
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<label for="top_bar_bg_color">Màu nền thanh top bar (đầu trang)</label>
+										</th>
+										<td><input id="top_bar_bg_color" name="top_bar_bg_color" class="color" type="text" value="#f8f8fd" /></td>
+									</tr>
+									<tr>
+										<td colspan="2">
+											<h3 class="heading">Màu sắc footer (phần chân trang)</h3>
+										</td>
+									</tr>
+									<tr>
+										<th><label for="footer_color">Màu nền footer (phần chân trang)</label></th>
+										<td><input id="footer_color" name="footer_color" class="color" type="text" value="#f9f9f9" /></td>
+									</tr>
+									<tr>
+										<th><label for="footer_text_color">Màu tiêu đề footer (phần chân trang)</label></th>
+										<td><input id="footer_text_color" name="footer_text_color" class="color" type="text" value="#9a9a9a" /></td>
+									</tr>
+									<tr>
+										<th><label for="footer_link_color">Màu liên kết (link) footer (phần chân trang)</label></th>
+										<td><input id="footer_link_color" name="footer_link_color" class="color" type="text" value="#666666" /></td>
+									</tr>
+									<tr>
+										<th><label for="footer_social_link_color">Màu các biểu tượng social media</label></th>
+										<td><input id="footer_social_link_color" name="footer_social_link_color" class="color" type="text" value="#ab9aa0" /></td>
+									</tr>
+								</table>
+							</fieldset>
+
+			<!-- Typography -->
+			<fieldset>
+								<legend>9. Kiểu chữ</legend>
+								<table>
+									<tr>
+										<td colspan="2">
+											<h3 class="heading">Kiểu chữ các tiêu đề (heading)</h3>
+										</td>
+									</tr>
+									<tr>
+										<th><label for="google_heading_font">Các loại kiểu chữ Google (Google Web Font Typeface)</label></th>
+										<td>
+											<select name="google_heading_font" id="google_heading_font">
+                                                <optgroup label="Web Fonts">
+                                                    <option value="Roboto">Roboto</option>
+                                             <option value="Source Sans Pro">Source Sans Pro</option>
+                                             <option value="Roboto Condensed">Roboto Condensed</option>
+                                             <option value="Roboto Slab">Roboto Slab</option>
+                                             <option value="Tinos">Tinos</option>
+                                             <option value="Patrick Hand">Patrick Hand</option>
+                                             <option value="Alegreya Sans">Alegreya Sans</option>
+                                             <option value="Alegreya Sans SC">Alegreya Sans SC</option>
+                                             <option value="Cousine">Cousine</option>
+                                             <option value="Patrick Hand SC">Patrick Hand SC</option>
+                                             <option value="Arial, 'Helvetica Neue', Helvetica, sans-serif">Arial</option>
+                                                </optgroup> 
+											</select>
+										</td>
+									</tr>
+
+									<tr>
+										<th><label for="heading_font_weight">Độ đậm chữ các tiêu đề (heading)</label></th>
+										<td>
+											<select name="heading_font_weight" id="heading_font_weight">
+												<option value="400">Normal</option>
+												<option value="700">Bold</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<th><label for="heading_font_style">Loại chữ các tiêu đề (heading)</label></th>
+										<td>
+											<select name="heading_font_style" id="heading_font_style">
+												<option value="none" selected="selected">Bình thường</option>
+												<option value="lowercase">Viết thường</option>
+												<option value="uppercase">Viết hoa</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="2">
+											<h3 class="heading">Kiểu chữ nội dung chính</h3>
+										</td>
+									</tr>
+									<tr>
+										<th><label for="google_body_font">Các loại kiểu chữ Google (Google Web Font Typeface)</label></th>
+										<td>
+											<select name="google_body_font" id="google_body_font">
+                                                <optgroup label="Web Fonts">
+                                                    <option value="Roboto">Roboto</option>
+                                             <option value="Source Sans Pro">Source Sans Pro</option>
+                                             <option value="Roboto Condensed">Roboto Condensed</option>
+                                             <option value="Roboto Slab">Roboto Slab</option>
+                                             <option value="Tinos">Tinos</option>
+                                             <option value="Patrick Hand">Patrick Hand</option>
+                                             <option value="Alegreya Sans">Alegreya Sans</option>
+                                             <option value="Alegreya Sans SC">Alegreya Sans SC</option>
+                                             <option value="Cousine">Cousine</option>
+                                             <option value="Patrick Hand SC">Patrick Hand SC</option>
+                                             <option value="Arial, 'Helvetica Neue', Helvetica, sans-serif">Arial</option>
+                                                </optgroup>
+											</select>
+										</td>
+									</tr>
+								</table>
+							</fieldset>
+
+		</div>
+	</div>
+</fieldset>
+<!-- End: 1. Trang chủ -->
+
+<fieldset class="test">
+	<legend> 2. Trang nhóm sản phẩm</legend>
+	<div id="tabs-2" class="setnd col-sm-12">
+		<div class="col-sm-6"><img src="//hstatic.net/0/0/global/design/member/img_setting/4kids/collection_t4.png" width="94%"style="float: right;">  </div>
+		<div class="col-sm-6">
+			<table>
+					<tr>
+						<th><label for="collection_featured_image">1. Hiển thị hình ảnh của nhóm sản phẩm</label></th>
+						<td><input type="checkbox" id="collection_featured_image" name="collection_featured_image" value="1" /></td>
+					</tr>
+					<tr>
+						<th><label for="pagination_limit">2. Số sản phẩm hiển thị ở mỗi trang?</label></th>
+						<td>
+							<select name="pagination_limit" id="pagination_limit">
+								<option value="48">48</option>
+								<option value="32">32</option>
+								<option value="24">24</option>
+								<option value="20">20</option>
+								<option value="16">16</option>
+								<option value="12" selected="selected">12</option>
+								<option value="8">8</option>
+								<option value="4">4</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<h3 class="heading">Lựa chọn kiểu hiển thị</h3>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<label for="product_grid_layout">3. Dạng lưới</label>
+						</th>
+						<td>
+							<select name="product_grid_layout" id="product_grid_layout">
+								<option value='4-col' selected="selected">4 cột</option>
+								<option value='3-col'>3 cột</option>
+								<option value='2-col'>2 cột</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<th><label for="show_grid_vendor">4. Hiện nhà cung cấp?</label></th>
+						<td><input type="checkbox" id="show_grid_vendor" name="show_grid_vendor" value="0" /></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<h3 class="heading">Cột bên (sidebar)</h3>
+						</td>
+					</tr>
+					<tr>
+						<th><label for="show_sb_collections">5. Hiện Cột bên (sidebar)?</label></th>
+						<td><input type="checkbox" id="show_sb_collections" name="show_sb_collections" value="1" /></td>
+					</tr>
+					<tr>
+						<th><label for="show_sidebar_collections">6. Hiện widget nhóm sản phẩm?</label></th>
+						<td><input type="checkbox" id="show_sidebar_collections" name="show_sidebar_collections" value="1" /></td>
+					</tr>
+					<tr>
+						<th><label for="sidebar_collections_title">7. Tiêu đề widget nhóm sản phẩm </label></th>
+						<td><input type="text" id="sidebar_collections_title" name="sidebar_collections_title" size="50" style="width:200px" value="Collections" /></td>
+					</tr>
+					<tr>
+						<th><label for="show_sidebar_vendors">8. Hiện widget nhà cung cấp?</label></th>
+						<td><input type="checkbox" id="show_sidebar_vendors" name="show_sidebar_vendors" value="1" /></td>
+					</tr>
+					<tr>
+						<th><label for="sidebar_vendors_title">9. Tiêu đề widget  nhà cung cấp</label></th>
+						<td><input type="text" id="sidebar_vendors_title" name="sidebar_vendors_title" size="50" style="width:200px" value="Brands" /></td>
+					</tr>
+					<tr>
+						<th><label for="show_sidebar_tags">10. Hiện widget tag?</label></th>
+						<td><input type="checkbox" id="show_sidebar_tags" name="show_sidebar_tags" value="1" /></td>
+					</tr>
+					<tr>
+						<th><label for="sidebar_tags_title">11. Tiêu đề widget tag </label></th>
+						<td><input type="text" id="sidebar_tags_title" name="sidebar_tags_title" size="50" style="width:200px" value="Tags" /></td>
+					</tr>
+					<tr>
+						<th><label for="show_sidebar_sale">12. Hiện sản phẩm ở widget sale?</label></th>
+						<td><input type="checkbox" id="show_sidebar_sale" name="show_sidebar_sale" value="1" /></td>
+					</tr>
+					<tr>
+						<th><label for="sidebar_sale_title">13. Tiêu đề widget sale </label></th>
+						<td><input type="text" id="sidebar_sale_title" name="sidebar_sale_title" size="50" style="width:200px" value="On Sale" /></td>
+					</tr>
+					<tr>
+						<th><label for="sidebar_sale_collection">14. Nhóm sản phẩm hiển thị:</label></th>
+						<td><select name="sidebar_sale_collection" id="sidebar_sale_collection" class="collection" /></td>
+					</tr>
+					<tr>
+						<th><label for="sidebar_product_count">15. Số lượng sản phẩm hiển thị?</label></th>
+						<td>
+							<select name="sidebar_product_count" id="sidebar_product_count">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4" selected="selected">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+							</select>
+						</td>
+					</tr>
+				</table>
+    </div>
+  </div>
+</fieldset>
+<!-- End: 2. Trang nhóm sản phẩm -->
+
+<fieldset class="test">
+	<legend> 3. Trang sản phẩm</legend>
+	<div id="tabs-3" class="setnd col-sm-12">
+		<div class="col-sm-6">
+							<img src="//hstatic.net/0/0/global/design/member/img_setting/4kids/product_t4.png" width="94%"style="float: right;">
+							</div>
+		<div class="col-sm-6">
+      <table>
+				<tr>
+					<td colspan="2">
+						<h3 class="heading">3.1 Bố cục phần mô tả sản phẩm:</h3>
+					</td>
+				</tr>
+				<tr>
+					<td><input type="radio" name="product_description_layout" value="product_tabs" selected="selected" /> Product tabs &nbsp;
+						<input type="radio" name="product_description_layout" value="product_accordion" /> Tab ngang &nbsp; <input type="radio" name="product_description_layout" value="description_only" /> Chỉ hiển thị mô tả</td>
+				</tr>
+				<!--
+				<tr>
+					<td><label for="product_reviews">Enable product reviews?</label><p>Requires free <a href="https://apps.haravan.com/product-reviews" target="_blank">Haravan Product Reviews</a> app.</p></td>
+					<td><input type="checkbox" id="product_reviews" name="product_reviews" /></td>
+				</tr> -->
+				<tr>
+					<td colspan="2">
+						<h3 class="heading">3.2 Hiển thị các nội dung Social media</h3>
+					</td>
+				</tr>
+				<tr>
+						<td colspan="2">
+								<p>Các nội dung Social media bao gồm <a href="https://developers.facebook.com/docs/opengraph/using-objects/" title="About Facebook Open Graph Objects">Facebook</a> và <a href="https://developers.pinterest.com/rich_pins/" title="About Pinterest Rich Pins">Pinterest</a> Open Graph Tags và <a href="https://dev.twitter.com/docs/cards/types/product-card" title="About Twitter Product Cards">Twitter Cards</a>. 
+		</p>
+						</td>
+				</tr>
+				<tr>
+					<th><label for="twittercard_handle">Tài khoản Twitter</label></th>
+					<td>
+						<input type="text" id="twittercard_handle" name="twittercard_handle" size="50" style="width:150px" /><br />
+						<p>Ví dụ: @Haravanvn</p>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<h3 class="heading">3.3 Sản phẩm liên quan</h3>
+					</td>
+				</tr>
+				<tr>
+					<th><label for="related_products">Hiển thị Sản phẩm liên quan</label></th>
+					<td><input type="checkbox" id="related_products" name="related_products" value="1" /></td>
+				</tr>
+				<tr>
+					<th><label for="related_products_title">Tiêu đề phần Sản phẩm liên quan</label></th>
+					<td><input type="text" id="related_products_title" name="related_products_title" size="50" style="width:150px" value="We Also Recommend" /></td>
+				</tr>
+			</table>  
+    </div>  
+	</div>
+</fieldset>
+<!-- End: 3. Trang sản phẩm -->
+
+<fieldset class="test">
+	<legend> 4. Trang bài viết</legend>
+	<div id="tabs-4" class="setnd col-sm-12">
+		<div class="col-sm-6">
+							<img src="//hstatic.net/0/0/global/design/member/img_setting/4kids/blog_t4.png" width="94%"style="
+				float: right;">
+							</div>
+		<div class="col-sm-6">
+			<table>
+				<tr>
+					<td colspan="2">
+						<h3 class="heading">Cột bên (Sidebar)</h3>
+					</td>
+				</tr>
+				<tr>
+					<th><label for="show_sb_blog">1. Hiện nội dung cột bên ( Sidebar)</label></th>
+					<td><input type="checkbox" id="show_sb_blog" name="show_sb_blog" value="1" /></td>
+				</tr>
+				<tr>
+					<th><label for="show_sidebar_recent_posts">2. Hiển thị Bài viết mới nhất widget?</label></th>
+					<td><input type="checkbox" id="show_sidebar_recent_posts" name="show_sidebar_recent_posts" value="1" /></td>
+				</tr>
+				<tr>
+					<th><label for="sidebar_recent_posts_title"> Tiêu đề Bài viết mới nhất widget </label></th>
+					<td><input type="text" id="sidebar_recent_posts_title" name="sidebar_recent_posts_title" size="40" style="width:200px" value="Recent Posts" /></td>
+				</tr>
+				<tr>
+					<th><label for="show_sidebar_blog_tags">3. Hiển thị tags widget?</label></th>
+					<td><input type="checkbox" id="show_sidebar_blog_tags" name="show_sidebar_blog_tags" value="1" /></td>
+				</tr>
+				<tr>
+					<th><label for="sidebar_blog_tags_title"> Tiêu đề Tags widget </label></th>
+					<td><input type="text" id="sidebar_blog_tags_title" name="sidebar_blog_tags_title" size="40" style="width:200px" value="Categories" /></td>
+				</tr>
+				<tr>
+					<th><label for="show_blog_sidebar_sale">4. Hiển thị sản phẩm ở tiêu đề widget?</label></th>
+					<td><input type="checkbox" id="show_blog_sidebar_sale" name="show_blog_sidebar_sale" value="1" /></td>
+				</tr>
+				<tr>
+					<th><label for="sidebar_blog_sale_title"> Tiêu đề Sale widget </label></th>
+					<td><input type="text" id="sidebar_blog_sale_title" name="sidebar_blog_sale_title" size="40" style="width:200px" value="On Sale" /></td>
+				</tr>
+				<tr>
+					<th><label for="sidebar_blog_sale_collection">5. Chọn nhóm sản phẩm hiển thị:</label></th>
+					<td><select name="sidebar_blog_sale_collection" id="sidebar_blog_sale_collection" class="collection" /></td>
+				</tr>
+				<tr>
+					<th><label for="sidebar_blog_product_count">Số sản phẩm hiển thị?</label></th>
+					<td>
+						<select name="sidebar_blog_product_count" id="sidebar_blog_product_count">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4" selected="selected">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+						</select>
+					</td>
+				</tr>
+			</table>	
+		</div>   
+	</div>
+</fieldset>
+<!-- End:  4. Trang bài viết -->
+
+<!-- Cart Page -->
+<fieldset>
+  <legend>5. Trang giỏ hàng</legend>
+  <table>
+    <tr>
+      <td><label for="cart_notes">Cho phép khách hàng thêm ghi chú</label></td>
+      <td colspan="2">
+        <input type="checkbox" id="cart_notes" name="cart_notes" value="1"/>
+      </td>
+    </tr>
+  </table>
+</fieldset>
+
+<!-- Contact Us Page -->
+<fieldset>
+  <legend>6. Trang liên hệ</legend>
+  <table>
+    <tr>
+      <th><label for="show_google_map">Hiện Google Map?</label></th>
+      <td>
+        <input type="checkbox" id="show_google_map" name="show_google_map" value="1" />
+      </td>
+    </tr>
+    <tr>
+      <th><label for="google_lat">Tọa độ Latitude <a href="http://itouchmap.com/latlong.html" target="_blank">(?)</a></label></th>
+      <td>
+        <input type="text" class="text" id="google_lat" name="google_lat" value="37.783914" />
+      </td>
+    </tr>
+    <tr>
+      <th><label for="google_long">Tọa độ Longitude <a href="http://itouchmap.com/latlong.html" target="_blank">(?)</a></label></th>
+      <td>
+        <input type="text" class="text" id="google_long" name="google_long" value="-122.403297" />
+      </td>
+    </tr>
+  </table>
+</fieldset>
+

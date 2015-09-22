@@ -1,0 +1,73 @@
+{% if settings.search_results == 'products-grid' %}
+  {% assign grid_results = true %}
+{% else %}
+  {% assign grid_results = false %}
+{% endif %}
+
+<section id="content">
+  <div class="container">
+    {% include 'breadcrumb' %}
+
+    {% if search.performed %}
+      {% paginate search.results by 10 %}
+
+        {% if search.results_count == 0 %}
+          <div class="row"> 
+            <div class="col-sm-12">
+              <h1>Kết quả tìm kiếm</h1>
+              <p>Không thấy kết quả tìm kiếm cho từ khóa "{{ search.terms }}".</p>
+              {% include 'search-bar' %}
+            </div>
+          </div>
+
+        {% else %}
+          <div class="row">
+            <div class="col-sm-9">
+              <h1>Kết quả tìm kiếm</h1>
+              <p>Kết quả tìm kiếm cho từ khóa "<strong>{{ search.terms }}</strong>":</p>
+            </div>
+            <div class="col-sm-3 pull-right hidden-xs">
+              Tìm kiếm:<br />
+              {% include 'search-bar' %}
+            </div>
+          </div>
+          
+          {% if grid_results == false %}
+            <div class="search-list mt20">
+              {% for item in search.results %}
+                {% include 'search-result' %}
+              {% endfor %}
+            </div>
+          {% else %}
+            <ul class="products row mt20">
+              {% for item in search.results %}
+                {% include 'search-result-grid' %}
+              {% endfor %}
+            </ul>
+          {% endif %}
+
+        {% endif %}
+
+        {% if paginate.pages > 1 %}
+          <div class="text-center">
+            {% include 'pagination-custom' %}
+          </div>
+        {% endif %}
+
+      {% endpaginate %}
+
+
+    {% else %}
+
+      <div class="row mt20">
+        <div class="col-sm-6">
+          <h1>Tìm kiếm:</h1>
+          {% include 'search-bar' %}
+        </div>
+      </div>
+
+    {% endif %}
+
+
+  </div>
+</section>

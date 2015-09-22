@@ -1,0 +1,49 @@
+{% paginate collection.products by settings.pagination_limit %}
+
+<section id="content">
+  <div class="container">
+    {% include 'breadcrumb' %}
+    
+    <div class="row">
+      {% if settings.show_sb_collections %}
+        <div class="col-sm-3 sidebar hidden-xs">
+          {% include 'collection-sidebar' %}
+        </div>
+        <div class="col-sm-9">
+      {% else %}
+        <div class="col-sm-12">
+      {% endif %}
+        {% if settings.collection_featured_image %}
+        <div class="row">
+          <div class="category-image">
+            <img src="{{ collection.image | collection_img_url: 'master' }}" alt="{{ collection.title }}" class="img-responsive" />
+          </div><!-- /.category-image -->
+        </div>
+        {% endif %}
+        <div class="row">
+          <header class="section-header{% if settings.collection_featured_image %} mt20{% endif %}">
+            <div class="col-sm-5{% if settings.collection_featured_image %} mpl0{% endif %}">
+              <h1>{{ collection.title }}</h1>
+            </div><!-- /.col-sm-6 -->
+            <div class="col-sm-7 mpr0 mt5">
+              {% include 'collection-views' %}
+              {% include 'collection-sorting' %}
+            </div><!-- /.col-sm-6 -->
+          </header>
+        </div><!-- /.row -->
+    
+        {% for product in collection.products %}
+          {% include 'product-loop-list' %}
+        {% else %}
+          <p>Không có sản phẩm nào phù hợp.</p>
+        {% endfor %}
+        
+        {% if paginate.pages > 1 %}
+          {% include 'pagination-custom' %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endpaginate %}

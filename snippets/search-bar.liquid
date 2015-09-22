@@ -1,0 +1,13 @@
+  <form action="/search" method="get" class="form-inline" role="search">
+  {% unless settings.search_results == 'everything' %}
+    <input type="hidden" name="type" value="product">
+  {% endunless %}
+  <div class="input-group">
+    <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="Bạn cần tìm gì" class="form-control" aria-label="Bạn cần tìm gì">
+    <span class="input-group-btn">
+      <button class="btn btn-primary" type="submit" value="Tìm"><i class="fa fa-search"></i></button>
+    </span>
+  </div><!-- /input-group -->
+  </form> 
+
+

@@ -1,0 +1,14 @@
+</div>
+  <div class="parallax-banner hidden-xs" data-background="#000" data-opacity="0.45" data-height="200">
+    <img src="{{ 'parallax_image.jpg' | asset_url }}" alt="background" />
+    <div class="parallax-overlay"></div>
+    <div class="parallax-title">
+      {% if settings.parallax_image_text != '' %}
+      {{ settings.parallax_image_text}}
+      {% endif %}
+      {% if settings.parallax_link != '' %}
+      <p><a href="{{ settings.parallax_link }}" class="btn btn-lg btn-primary">{{ settings.parallax_button_text }}</a></p>
+      {% endif %}
+    </div>
+  </div>
+  <div class="container">

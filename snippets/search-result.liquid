@@ -1,0 +1,35 @@
+{% assign on_sale = false %}
+{% if item.available and item.compare_at_price > item.price %}
+  {% assign on_sale = true %}
+{% endif %}
+
+{% assign sold_out = true %}
+{% if item.available  %}
+  {% assign sold_out = false %}
+{% endif %}
+
+<div class="row search-row">
+  {% if item.featured_image %}
+    <div class="col-sm-3">
+      <div class="thumbnail">
+        {% if on_sale %}
+          <div class="on-sale">Sale</div>
+        {% endif %}
+        {% if sold_out %}
+          <div class="sold-out">Hết hàng</div>
+        {% endif %}
+          <a href="{{ item.url }}" title="{{ item.title | escape }}">{{ item.featured_image.src | product_img_url: 'large' | img_tag: item.featured_image.alt }}
+          </a>
+      </div>
+    </div><!-- /col-md-4 -->
+  {% endif %}
+
+  <div class="col-sm-9 products {% unless item.featured_image %}col-sm-offset-3{% endunless %}">
+    <h2 class="list-product-title">{{ item.title | link_to: item.url }}</h2>
+    <p><span class="price">{% if item.price_varies %}From{% endif %} {% if on_sale %}<span class="compare-price">{{ item.compare_at_price | money }}</span>{% endif %} <span itemprop="price">{{ item.price | money }}</span></span></p>
+    {% if item.description != '' %}
+      <div class="short-description mb20">{{ item.content | strip_html | truncatewords:50 }}</div>
+    {% endif %}
+  </div>
+</div>
+<hr>

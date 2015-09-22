@@ -1,0 +1,162 @@
+{% assign number_of_comments = article.comments_count %}
+
+{% if comment and comment.created_at %}
+  {% assign number_of_comments = article.comments_count | plus: 1 %}
+{% endif %}
+
+<section id="content">
+  <div class="container">
+
+    {% include 'breadcrumb' %}
+
+    <div class="row">
+
+    <!-- Posts Start -->
+    {% if settings.show_sb_blog %}
+      <div class="col-sm-9">
+    {% else %}
+      <div class="col-sm-12">
+    {% endif %}
+
+        <article class="post">
+          <h1 class="entry-title">{{ article.title }}</h1>
+          <div class="entry-meta">
+            <span class="date"><i class="fa fa-calendar"></i><time pubdate datetime="{{ article.published_at | date: '%Y-%m-%d' }}">
+              {{ article.published_at | date: '%b %d, %Y' }}
+              </time></span>
+            <span class="author"><i class="fa fa-user"></i>Bởi {{ article.author }}</span>
+            {% if blog.comments_enabled? %}
+            <span class="comments"><i class="fa fa-comment"></i><a href="#comments">{{ number_of_comments }} {{ number_of_comments | pluralize: 'bình luận', 'bình luận' }}</a></span>
+            {% endif %}
+            {% include 'tags-article' %}
+          </div>
+          {% if article.excerpt.size > 0 %}
+          <div class="post-thumb">
+            {{ article.excerpt }}
+          </div><!-- /blog-alt-image -->
+          {% endif %}
+          <div class="entry-content">
+            {{ article.content }}
+          </div>
+          
+          <div class="social-sharing-blog hidden-xs">
+            {% include 'social-sharing' %}
+          </div>
+          <div class="social-sharing-blog visible-xs">
+            {% include 'social-sharing-mobile' %}
+          </div>
+          
+          {% if blog.next_article or blog.previous_article %}
+          <ul class="pager">
+            {% if blog.previous_article %}
+            <li class="previous">{{ '&larr; ' | link_to: blog.previous_article }}</li>
+            {% endif %}
+            {% if blog.next_article %}
+            <li class="next">{{ ' &rarr;' | link_to: blog.next_article }}</li>
+            {% endif %}
+          </ul>
+          {% endif %}
+        </article>
+        <!-- Post End -->
+        
+        
+        {% if blog.comments_enabled? %}
+          
+          {% paginate article.comments by 5 %}
+
+            <!-- Comments Start -->
+            <div id="comments" class="comments">
+              
+              {% if comment and comment.created_at %}
+              <div class="alert alert-success" role="alert">
+                {% if blog.moderated? %}
+                Gửi thành công, bình luận sẽ hiển thị sau khi được duyệt.
+                {% else %}
+                Gửi bình luận thành công
+                {% endif %}
+              </div>
+              {% endif %}
+
+              <h3>{{ number_of_comments }} {{ number_of_comments | pluralize: 'bình luận', 'bình luận' }}</h3>
+
+              {% if number_of_comments > 0 %}
+              <ul class="media-list">
+                
+                {% if comment and comment.created_at %}
+                <li id="{{ comment.id }}" class="media first{% if article.comments_count == 0 %} last{% endif %}">
+                  {% include 'comment' %}
+                </li>
+                {% endif %}
+
+                {% for comment in article.comments %}
+                <li id="{{ comment.id }}" class="media{% unless number_of_comments > article.comments_count %}{% if forloop.first %} first{% endif %}{% endunless %}{% if forloop.last %} last {% endif %}">
+                  {% include 'comment' %}
+                </li>
+                {% endfor %}
+              </ul>
+              <!-- Comments End -->
+
+              {% if paginate.pages > 1 %}
+                {% include 'pagination-custom' %}
+              {% endif %}
+
+              <hr>
+
+              {% endif %}
+
+              {% form 'new_comment', article %}
+
+              <h3 id="add-comment-title">Gửi bình luận</h3>
+
+              {% include 'form-errors-custom' %}
+
+              <!-- Form Start -->
+              <div class="form-group">
+                <label for="comment-author" class="sr-only">Tên</label>
+                <input class="form-control input-lg{% if form.errors contains "author" %} has-error{% endif %}" type="text" name="comment[author]" placeholder="Tên" id="comment-author" value="{{ form.author }}" autocapitalize="words">
+              </div>
+              <div class="form-group">
+                <label for="comment-email" class="sr-only">Email</label>
+                <input class="form-control input-lg{% if form.errors contains "email" %} has-error{% endif %}" type="email" name="comment[email]" placeholder="Email" id="comment-email" value="{{ form.email }}" autocorrect="off" autocapitalize="off">
+              </div>
+              <div class="form-group">
+                <label for="comment-body" class="sr-only">Comment</label>
+                <textarea rows="6" class="form-control input-lg{% if form.errors contains "body" %} error{% endif %}" name="comment[body]" id="comment-body" placeholder="Nội dung">{{ form.body }}</textarea>
+              </div>
+              {% if blog.moderated? %}
+                <p><em>Lưu ý: Các bình luận chỉ hiển thị khi đã duyệt</em></p>
+              {% endif %}
+
+              <input type="submit" class="btn btn-primary btn-lg" value="Gửi">
+              <!-- Form End -->
+
+              {% if form.errors %}
+                <script>
+                  window.location.hash = '#add-comment-title';
+                </script>
+              {% endif %}
+
+              {% if form.posted_successfully? %}
+                <script>
+                  window.location.hash = '#comments';
+                </script>
+              {% endif %}
+
+            {% endform %}
+
+            </div>
+
+          {% endpaginate %}
+
+        {% endif %}
+
+      </div>
+      <!-- Posts End -->
+
+      {% if settings.show_sb_blog %}
+        {% include 'blog-sidebar' %}
+      {% endif %}
+
+    </div>
+  </div>
+</section>

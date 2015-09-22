@@ -1,0 +1,87 @@
+{% if settings.show_sidebar_collections %}
+<aside class="widget widget_product_categories">
+  <h3 class="widget-title">{{ settings.sidebar_collections_title}}</h3>
+  <ul>
+    {% for collection in collections %}
+      {% unless collection.handle == 'frontpage' %}
+        <li>
+        {% capture collection_title %}{{ collection.title | escape }}{% endcapture %}
+        <a href="{{ collection.url }}" title="Xem danh mục {{ collection_title }}">{{ collection_title }}</a>
+        </li>
+      {% endunless %}
+    {% endfor %}
+  </ul>
+</aside>
+{% endif %}
+
+{% if settings.show_sidebar_vendors %}
+<aside class="widget widget_product_brand">
+  <h3 class="widget-title">{{ settings.sidebar_vendors_title}}</h3>
+  <ul>
+    {% for product_vendor in shop.vendors %}
+      <li>{{ product_vendor | link_to_vendor }}</li>
+    {% endfor %}
+  </ul>
+</aside>
+{% endif %}
+
+{% if settings.show_sidebar_tags %}
+<aside class="widget widget_product_brand">
+  <h3 class="widget-title">{{ settings.sidebar_tags_title}}</h3>
+  {% if collection.all_tags.size > 0 %}
+  <ul>
+    <li{% unless current_tags %} class="active-filter"{% endunless %}>
+      {% if collection.handle %}
+        <a href="/collections/{{ collection.handle }}">Tất cả {{ collection.title }}</a>
+      {% elsif collection.current_type %}
+        <a href="{{ collection.current_type | url_for_type }}">Tất cả {{ collection.title }}</a>
+      {% elsif collection.current_vendor %}
+        <a href="{{ collection.current_vendor | url_for_vendor }}">Tất cả {{ collection.title }}</a>
+      {% endif %}
+    </li>
+    {% for tag in collection.all_tags %}
+      {% if current_tags contains tag %}
+        <li class="active-filter">
+          {{ tag | link_to_remove_tag: tag }}
+        </li>
+      {% else %}
+        <li>
+          {% comment %}
+            Use link_to_add_tag if you want to allow filtering
+            by multiple tags
+          {% endcomment %}
+          {{ tag | link_to_tag: tag }}
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>Bạn cần thêm tag cho các sản phẩm.</p>
+{% endif %}
+</aside>
+{% endif %}
+
+{% if settings.show_sidebar_sale %}
+<aside class="widget widget_sale">
+  <h3 class="widget-title">{{ settings.sidebar_sale_title}}</h3>
+  {% for product in collections[settings.sidebar_sale_collection].products | limit:settings.sidebar_product_count %}
+    <div class="row">
+      <div class="product-block">
+        <div class="media">
+          <a class="pull-left" href="{{ product.url | within: collection }}"><img src="{{ product.featured_image.src | product_img_url: 'small' }}" alt="{{ product.featured_image.alt | escape }}" /></a>
+          <div class="media-body">
+            <h3><a href="{{ product.url | within: collection }}">{{ product.title }}</a></h3>
+            <span class="price">
+          {% if product.compare_at_price > product.price %}
+            <span class="compare-price">{{ product.compare_at_price | money }}</span>
+          {% endif %}
+          {{ product.price | money }}
+          </span>
+          </div><!-- /.media-body -->
+        </div><!-- /.media -->
+      </div>
+    </div>
+{% endfor %}
+</aside>
+{% endif %}
+

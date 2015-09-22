@@ -1,0 +1,54 @@
+<div class="col-sm-3 sidebar hidden-xs">
+  {% if settings.show_sidebar_recent_posts %}
+  <aside class="widget widget_recent_posts">
+    <h3 class="widget-title">{{ settings.sidebar_recent_posts_title }}</h3>
+    <ul class="submenu">
+      {% for article in blog.articles limit:6 %}
+      <li><a href="{{ article.url }}">{{ article.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </aside>
+  {% endif %}
+  {% if settings.show_sidebar_blog_tags %}
+  <aside class="widget widget_categories">
+    <h3 class="widget-title">{{ settings.sidebar_blog_tags_title }}</h3>
+    {% if blog.tags.size > 0 %}
+    <ul class="submenu">
+      {% for tag in blog.tags %}
+        {% if current_tags contains tag %}
+          <li>{{ tag }}</li>
+        {% else %}
+          <li>{{ tag | link_to_tag: tag }}</li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>Bạn có thể thêm tag vào bài viết</p>
+    {% endif %}
+  </aside>
+  {% endif %}
+
+  {% if settings.show_blog_sidebar_sale %}
+  <aside class="widget widget_sale">
+    <h3 class="widget-title">{{ settings.sidebar_blog_sale_title}}</h3>
+    {% for product in collections[settings.sidebar_blog_sale_collection].products | limit:settings.sidebar_blog_product_count %}
+      <div class="row">
+        <div class="product-block">
+          <div class="media">
+            <a class="pull-left" href="{{ product.url | within: collection }}"><img src="{{ product.featured_image.src | product_img_url: 'small' }}" alt="{{ product.featured_image.alt | escape }}" /></a>
+            <div class="media-body">
+              <h3><a href="{{ product.url | within: collection }}">{{ product.title }}</a></h3>
+              <span class="price">
+            {% if product.compare_at_price > product.price %}
+              <span class="compare-price">{{ product.compare_at_price | money }}</span>
+            {% endif %}
+            {{ product.price | money }}
+            </span>
+            </div><!-- /.media-body -->
+          </div><!-- /.media -->
+        </div>
+      </div>
+  {% endfor %}
+  </aside>
+  {% endif %}
+</div>

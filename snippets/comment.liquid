@@ -1,0 +1,7 @@
+<img src="http://www.gravatar.com/avatar/{{ comment.email | md5 }}?s=80" alt="{{ comment.author }}" class="media-object pull-left">
+<div class="media-body">
+  <h5 class="media-heading">{{ comment.author }}<small class="pull-right"><time datetime="{{ comment.created_at | date: '%Y-%m-%d' }}">
+      {{ comment.created_at | date: '%b %d, %Y' }}
+    </time></small></h5>
+  {{ comment.content }}
+</div>

@@ -1,0 +1,40 @@
+{% unless template == 'index' or template == 'cart' %}
+<ol class="breadcrumb">
+  <li><a href="/" title="Back to the home page">Trang chủ</a></li>
+
+  {% if template contains 'product' %}
+
+    {% if collection %}
+      {% if collection.handle %}
+         {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+         <li>{{ collection.title | link_to: url }}</li>
+      {% endif %}
+    {% endif %}
+    <li>{{ product.title }}</li>
+
+  {% elsif template contains 'collection' and collection.handle %}
+
+    {% if current_tags %}
+      {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+      <li>{{ collection.title | link_to: url }}</li>
+      <li>{{ current_tags.first }}</li>
+    {% else %}
+      <li>{{ collection.title }}</li>
+    {% endif %}
+
+  {% elsif template == 'article' %}
+
+    <li>{{ blog.title | link_to: blog.url }}</li>
+    <li>{{ article.title }}</li>
+
+  {% elsif template contains 'page' %}
+
+   <li>{{ page.title }}</li>
+
+  {% else %}
+
+   <li>{{ page_title }}</li>
+
+  {% endif %}
+</ol>
+{% endunless %}

@@ -1,0 +1,160 @@
+<!-- ========== FOOTER START ========== -->
+
+<footer id="footer">
+  <div class="container">
+    <hr>
+    <div class="row">
+
+      <div class="col-md-3 col-sm-6">
+        <aside class="widget widget_nav_menu">
+          <h3 class="widget-title fix-color-footer">{{ settings.footer_1_heading }}</h3>
+          <ul>
+            {% for link in linklists[settings.footer_linklist_1].links %}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </aside>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <aside class="widget widget_nav_menu">
+          <h3 class="widget-title fix-color-footer">{{ settings.footer_2_heading }}</h3>
+          <ul>
+            {% for link in linklists[settings.footer_linklist_2].links %}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </aside>
+      </div>
+
+
+      <div class="col-md-3 col-sm-6">
+
+        <aside class="widget widget_social_profiles">
+          <h3 class="widget-title fix-color-footer">{{ settings.footer_3_heading }}</h3>
+          {% unless settings.footer_3_text == '' %}
+            <p>{{ settings.footer_3_text }}</p>
+          {% endunless %}
+          {% if settings.footer_display_social %}
+          <ul class="social-profiles">
+            {% if settings.twitter_link != '' %}
+            <li>
+              <a href="{{ settings.twitter_link }}" title="Twitter">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            {% endif %}
+            {% if settings.facebook_link != '' %}
+            <li>
+              <a href="{{ settings.facebook_link }}" title="Facebook">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            {% endif %}
+            {% if settings.pinterest_link != '' %}
+            <li>
+              <a href="{{ settings.pinterest_link }}" title="Pinterest">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-pinterest fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            {% endif %}
+            {% if settings.google_plus_link != '' %}
+            <li>
+              <a href="{{ settings.google_plus_link }}" title="Pinterest">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            {% endif %}
+            {% if settings.instagram_link != '' %}
+            <li>
+              <a href="{{ settings.pinterest_link }}" title="Instagram">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            {% endif %}
+            {% if settings.tumblr_link != '' %}
+            <li>
+              <a href="{{ settings.tumblr_link }}" title="Tumblr">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-tumblr fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            {% endif %}
+            {% if settings.youtube_link != '' %}
+            <li>
+              <a href="{{ settings.youtube_link }}" title="YouTube">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            {% endif %}
+            {% if settings.vimeo_link != '' %}
+            <li>
+              <a href="{{ settings.vimeo_link }}" title="Vimeo">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-vimeo-square fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            {% endif %}
+          </ul>
+          {% endif %}
+        </aside>
+
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+
+        <aside class="widget widget_newsletter">
+          <h3 class="fix-color-footer widget-title ">{{ settings.newsletter_heading }}</h3>
+            {% if settings.newsletter_text != '' %}
+              <p>{{ settings.newsletter_text }}</p>
+            {% endif %}
+            {% include 'newsletter-form' %}
+        </aside>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div id="copyright">
+    <div class="container">&copy; {{ 'now' | date: "%Y" }} {{ shop.name }} | Designed by <a href="http://themeforest.net/user/jthemes" target="_blank">jThemes</a> | <a href="http://www.haravan.com/?ref=vector-themes" target="_blank">Haravan</a> Conversion by <a href="http://www.vectorthemes.com" target="_blank">Vector Themes</a></div>
+		{% if settings.show_payment_methods%}
+    <div class="payment-methods text-center mt20">
+      {% if settings.show_visa %}{{ 'pmt-visa.png' | asset_url | img_tag: 'Visa' }} {% endif %}
+          {% if settings.show_mastercard %}{{ 'pmt-mastercard.png' | asset_url | img_tag: 'MasterCard' }} {% endif %}
+          {% if settings.show_amex %}{{ 'pmt-amex.png' | asset_url | img_tag: 'American Express' }} {% endif %}
+          {% if settings.show_discover %}{{ 'pmt-discover.png' | asset_url | img_tag: 'Discover' }} {% endif %}
+          {% if settings.show_maestro %}{{ 'pmt-maestro.png' | asset_url | img_tag: 'Maestro' }} {% endif %}
+          {% if settings.show_cirrus %}{{ 'pmt-cirrus.png' | asset_url | img_tag: 'Cirrus' }} {% endif %}
+          {% if settings.show_paypal %}{{ 'pmt-paypal.png' | asset_url | img_tag: 'PayPal' }} {% endif %}
+          {% if settings.show_google %}{{ 'pmt-google-wallet.png' | asset_url | img_tag: 'Google Wallet' }} {% endif %}
+          {% if settings.show_bitcoin %}{{ 'pmt-bitcoin.png' | asset_url | img_tag: 'Bitcoin' }} {% endif %}
+    </div>
+		{% endif%}
+  </div>
+
+</footer>
+

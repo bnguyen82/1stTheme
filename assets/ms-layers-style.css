@@ -1,0 +1,44 @@
+h3.ms-layer {
+  margin: 0;
+  padding: 0;
+  font-size: 6em;
+  text-transform: uppercase;
+  color: #f1f1f1;
+  text-shadow:rgba(0, 0, 0, 0.8) 0px 2px 5px;
+}
+
+h4.ms-layer {
+  margin: 0;
+  padding: 0;
+  font-size: 4em;
+  color: #f1f1f1;
+  text-shadow:rgba(0, 0, 0, 0.8) 0px 2px 5px;
+}
+
+.ms-layer.text-box {
+  width: 41%;
+  height: 36%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.ms-slide-layers {
+  overflow: visible !important; 
+}
+
+.ms-slide .btn {
+  padding:10px;
+  font-size:1.6em;
+}
+.slide-pattern{
+  background: url(pattern.png) scroll;
+  width: 100%;
+  height: 100%;
+  z-index: 8;
+  -webkit-transform: translateZ(0.4px);
+  -moz-transform: translateZ(0.4px);
+  -ms-transform: translateZ(0.4px);
+  -o-transform: translateZ(0.4px);
+  transform: translateZ(0.4px);
+  position: absolute;
+  top: 0;
+}

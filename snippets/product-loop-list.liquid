@@ -1,0 +1,41 @@
+{% assign on_sale = false %}
+{% if product.available and product.compare_at_price > product.price %}
+  {% assign on_sale = true %}
+{% endif %}
+
+{% assign sold_out = true %}
+{% if product.available  %}
+  {% assign sold_out = false %}
+{% endif %}
+
+<div class="product-list-item">
+  <div class="row mb30">
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        {% if on_sale %}
+        <div class="on-sale">Sale</div>
+        {% endif %}
+        {% if sold_out %}
+          <div class="sold-out">Hết hàng</div>
+        {% endif %}
+        <a href="{{ product.url | within: collection }}">
+          <img src="{{ product.featured_image.src | product_img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}" />
+        </a>
+      </div>
+    </div>
+    <div class="col-sm-8 products mb20">
+      <h2 class="list-product-title"><a href="{{ product.url | within: collection }}">{{ product.title }}</a></h2>
+      {% if settings.show_grid_vendor %}
+      <p>by {{ product.vendor }}</p>
+      {% endif %}
+      <p><span class="price">{% if product.price_varies %}From{% endif %} {% if on_sale %}<span class="compare-price">{{ product.compare_at_price | money }}</span>{% endif %} {{ product.price | money }}</span></p>
+      {% if settings.product_reviews %}
+      <p><span class="haravan-product-reviews-badge" data-id="{{ product.id }}"></span></p>
+      {% endif %}
+      {% if product.description != '' %}
+        <div class="short-description mt20 mb20">{{ product.description | strip_html | truncatewords:50 }}</div>
+      {% endif %}
+      <p><a href="{{ product.url | within: collection }}" class="btn btn-lg btn-primary">Xem thêm</a></p>
+    </div>
+  </div>
+</div>

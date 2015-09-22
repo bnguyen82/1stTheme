@@ -1,0 +1,42 @@
+
+{% capture collection_handle %}{{  product-loop-fb  | handleize }}{% endcapture %}
+{% capture url %}{% if collection_handle != "" %}/collections/{{  product-loop-fb  }}{{ product.url }}{% else %}{{ product.url }}{% endif %}{% endcapture %}
+
+<div class="product col-sm-4">
+  <div class="panel panel-default">
+    <div class="panel-body">
+  {% if product.price_min < product.compare_at_price_min %}
+    <span class="circlesale">Sale</span>
+  {% endif %}
+
+  <div class="image">
+    <a href="{{ url | fblink}}">
+      <img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ product.title | escape  }}" />
+    </a>
+  </div>
+    <a href="{{ url |fblink }}" class="clearfix">
+      <h4 class="title">{{ product.title }}</h4>
+    </a>
+
+  </div>
+  <div class="panel-footer">
+   
+      {% if product.available %}
+      {% if product.compare_at_price_max > product.price %}
+      <del>{{ product.compare_at_price | money }}</del>
+      {% endif %}
+      {% if product.price_varies %}
+      <small>
+        <em>from</em>
+      </small>
+      {% endif %}
+      {{ product.price | money }}
+      {% else %}
+      {{ product.price | money }} Sold Out
+      {% endif %}
+
+  </div>
+</div>
+</div>
+
+{% cycle 'clear-product-loop': '', '', '<div style="clear:both;"></div>' %}

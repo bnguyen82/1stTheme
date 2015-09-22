@@ -1,0 +1,50 @@
+{% unless grid_item_width %}
+  {% assign grid_item_width = '4' %}
+{% endunless %}
+{% assign grid_item = settings.product_grid_layout %}
+{% assign grid_item_fix = '3'%}
+{% if grid_item == '3-col'%}
+	{% assign grid_item_fix = '4'%}
+{% elsif grid_item == '4-col'%}
+	{% assign grid_item_fix = '3'%}
+{%else%}
+	{% assign grid_item_fix = '6'%}
+{% endif%}
+{% assign on_sale = false %}
+{% if product.available and product.compare_at_price > product.price %}
+  {% assign on_sale = true %}
+{% endif %}
+
+{% assign sold_out = true %}
+{% if product.available  %}
+  {% assign sold_out = false %}
+{% endif %}
+
+<li class="col-md-{{ grid_item_fix }} col-sm-6 element">
+  <div class="product">
+    <div class="thumbnail">
+      {% if on_sale %}
+      <div class="on-sale">Sale</div>
+      {% endif %}
+      {% if sold_out %}
+        <div class="sold-out">Hết hàng</div>
+      {% endif %}
+      <a href="{{ product.url | within: collection }}">
+        <img src="{{ product.featured_image.src | product_img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}" />
+      </a>
+    </div>
+    <hr>
+    <div class="title">
+      <h3><a href="{{ product.url | within: collection }}">{{ product.title }}</a></h3>
+      {% if settings.product_reviews %}
+       <div class="hidden-xs">
+         <span class="haravan-product-reviews-badge" data-id="{{ product.id }}"></span>
+       </div> 
+       {% endif %}
+      {% if settings.show_grid_vendor %}
+      <p>by {{ product.vendor }}</p>
+      {% endif %}
+    </div>
+    <span class="price">{% if on_sale %}<span class="compare-price">{{ product.compare_at_price | money }}</span>{% endif %} {{ product.price | money }}</span>
+  </div>
+</li>

@@ -1,0 +1,84 @@
+{% layout settings.customer_layout %}
+
+<section id="content">
+  <div class="container">
+    {% include 'breadcrumb' %}
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>Tài khoản của tôi</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-8">
+        <h4>Lịch sử đơn hàng</h4>
+        {% if customer.orders.size != 0 %}
+
+        <table class="table table-striped">
+          <thead>
+            <tr class="acount_title">
+              <th><small>Đơn hàng</small></th>
+              <th><small>Ngày đặt</small></th>
+              <th><small>Tình trạng thanh toán</small></th>
+              <th><small>Tình trạng giao hàng</small></th>
+              <th><small>Tổng cộng</small></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for order in customer.orders %}
+              <tr>
+                <td>{{ order.name | link_to: order.customer_url }}</td>
+                <td>{{ order.created_at | date: "%b %d, %Y" }}</td>
+                <td>{{ order.financial_status }}</td>
+                <td>{{ order.fulfillment_status }}</td>
+                <td>{{ order.total_price | money }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+      {% else %}
+
+        <p>Bạn chưa có đơn hàng nào.</p>
+
+      {% endif %}
+      </div>
+      <div class="col-sm-4">
+        <h4>Thông tin tài khoản</h4>
+        <h5>{{ customer.name }}</h5>
+
+        {% if customer.default_address != nil %}
+          <p>
+          {{ customer.default_address.address1 }}<br>
+
+          {% if customer.default_address.address2 != blank %}
+            {{ customer.default_address.address2 }}<br>
+          {% endif %}
+
+          {% if customer.default_address.city != blank %}
+            {{ customer.default_address.city }}<br>
+          {% endif %}
+
+          {% if customer.default_address.province_code != blank %}
+            {{ customer.default_address.province_code | upcase }}<br>
+          {% endif %}
+
+          {% if customer.default_address.zip != blank %}
+            {{ customer.default_address.zip | upcase }}<br>
+          {% endif %}
+
+          {% if customer.default_address.country != blank %}
+            {{ customer.default_address.country }}<br>
+          {% endif %}
+
+          {% if customer.default_address.phone != blank %}
+            {{ customer.default_address.phone }}
+          {% endif %}
+          </p>
+        {% endif %}
+
+        <p><a href="/account/addresses">Xem ({{ customer.addresses_count }}) địa chỉ</a></p>
+
+      </div>
+    </div>
+  </div>
+</section>

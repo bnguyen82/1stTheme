@@ -1,0 +1,133 @@
+{% layout settings.customer_layout %}
+
+<section id="content">
+  <div class="container">
+    {% include 'breadcrumb' %}
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>Tài khoản của tôi</h1>
+        <p><a href="/account">Quay lại trang tài khoản</a></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-8">
+        <h4>Đơn hàng {{ order.name }}</h4>
+        <p>Đặt ngày <strong>{{ order.created_at | date: "%B %d, %Y %I:%M%p" }}</strong></p>
+
+            {% if order.cancelled %}
+            <div class="alert alert-danger">
+              <h5>Đơn hàng hủy ngày {{ order.cancelled_at | date: "%B %d, %Y %I:%M%p" }}</h5>
+              <p>Lí do: {{ order.cancel_reason }}</p>
+            </div>
+            {% endif %}
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th class="text-center"><small>Sản phẩm</small></th>
+              <th class="text-center"><small>SKU</small></th>
+              <th class="text-center"><small>Giá</small></th>
+              <th class="text-center"><small>Số lượng</small></th>
+              <th class="text-right"><small>Tổng</small></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for line_item in order.line_items %}
+            <tr id="{{ line_item.id }}">
+              <td>
+                {{ line_item.title | link_to: line_item.product.url }}
+                {% if line_item.fulfillment %}
+                  <div class="note">
+                    Đã giao {{ line_item.fulfillment.created_at | date: "%b %d" }}
+                    {% if line_item.fulfillment.tracking_number %}
+                      <a href="{{ line_item.fulfillment.tracking_url }}">{{ line_item.fulfillment.tracking_company }} #{{ line_item.fulfillment.tracking_number}}</a>
+                    {% endif %}
+                  </div>
+                {% endif %}
+              </td>
+              <td>{{ line_item.sku }}</td>
+              <td>{{ line_item.price | money }}</td>
+              <td class="text-center">{{ line_item.quantity }}</td>
+              <td class="text-right">{{ line_item.quantity | times: line_item.price | money }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4">Tạm tính:</td>
+              <td class="text-right">{{ order.subtotal_price | money }}</td>
+            </tr>
+
+            {% for discount in order.discounts %}
+              <tr class="order_summary discount">
+                <td colspan="4">{{ discount.code }} Khuyến mãi:</td>
+                <td class="text-right">{{ discount.savings | money }}</td>
+              </tr>
+            {% endfor %}
+
+            {% for shipping_method in order.shipping_methods %}
+            <tr>
+              <td colspan="4">Vận chuyển ({{ shipping_method.title }}):</td>
+              <td class="text-right">{{ shipping_method.price | money }}</td>
+            </tr>
+            {% endfor %}
+
+            {% for tax_line in order.tax_lines %}
+              <tr>
+                <td colspan="4">Thuế ({{ tax_line.title }} {{ tax_line.rate | times: 100 }}%):</td>
+                <td class="text-right">{{ tax_line.price | money }}</td>
+              </tr>
+            {% endfor %}
+
+            <tr>
+              <td colspan="4"><strong>Tổng cộng:</strong></td>
+              <td class="text-right"><strong>{{ order.total_price | money }} {{ order.currency }}</strong></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <div class="col-sm-4">
+        <h4>Thông tin thanh toán</h4>
+        <p><strong>Tình trạng thanh toán:</strong> {{ order.financial_status }}</p>
+          <h5>{{ order.billing_address.name }}</h5>
+          <p>
+            {% if order.billing_address.company != blank %}
+              {{ order.billing_address.company }}<br>
+            {% endif %}
+						{% if order.billing_address.street != blank%}
+            {{ order.billing_address.street }}<br>
+						{% endif %}
+						{% if order.billing_address.city != blank%}
+            {{ order.billing_address.city }}<br>
+						{% endif %}
+            {% if order.billing_address.province != blank %}
+              {{ order.billing_address.province }}<br>
+            {% endif %}
+						{% if order.billing_address.phone != blank %}
+            {{ order.billing_address.phone }}
+						{% endif%}
+          </p>
+          <h4>Thông tin giao hàng</h4>
+          <p><strong>Tình trạng giao hàng:</strong> {{ order.fulfillment_status }}</p>
+
+          <h5>{{ order.shipping_address.name }}</h5>
+          <p>
+            {% if order.shipping_address.company != blank %}
+              {{ order.shipping_address.company }}<br>
+            {% endif %}
+						{% if order.shipping_address.street != blank %}
+            {{ order.shipping_address.street }}<br>
+						{% endif %}
+						{% if order.shipping_address.city != blank %}
+            {{ order.shipping_address.city }}<br>
+						{% endif %}
+            {% if order.shipping_address.province != blank %}
+              {{ order.shipping_address.province }}<br>
+            {% endif %}
+						{% if order.shipping_address.phone != blank%}
+            {{ order.shipping_address.phone }}
+						{% endif %}
+          </p>
+      </div>
+    </div>
+  </div>
+</section>

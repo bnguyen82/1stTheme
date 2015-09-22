@@ -1,0 +1,109 @@
+{% if settings.use_slider %}
+  {% include 'home-slider' %}
+{% endif %}
+<style>
+	.show-more-line{
+		border-top:1px solid #eee;
+		position:relative;
+		width:100%;
+		margin:50px 0;
+		display:inline-block;
+	}
+	.show-more-line a.button{
+		border-radius: 100px;
+		background-clip: padding-box;
+		border: solid 2px #444;
+		position: absolute;
+		width: 34px;
+		height: 34px;
+		top: -18px;
+		left: 50%;
+		margin-left: -17px;
+		text-align: center;
+		font-size: 23px;
+		line-height: 34px;
+		color: #444;
+		font-size: 33px;
+		font-family: "Open Sans", Arial, sans-serif;
+		line-height: 27px;
+		text-decoration: none;
+	}
+	.show-more-line a:hover{
+		text-decoration:none;
+	}
+</style>
+<section id="content">
+  <div class="container">
+
+    {% if settings.use_page_content %}
+      <div class="gap-25"></div>
+      {{ pages[settings.page_title].content }}
+    {% endif %} 
+
+    {% if settings.use_ad_banners %}
+      {% include 'home-ads' %}
+    {% endif %}    
+    
+    {% if settings.use_featured_collections %}
+	    {% include 'home-featured-collections' %}
+    {% endif %}
+
+    {% if settings.use_parallax_banner %}
+      {% include 'parallax-ad' %}
+    {% endif %}
+    
+	{% if settings.use_featured_products %}
+    <h2 class="align-center unbranded">{{ settings.featured_products_title }}</h2>
+    <div class="gap-40"></div>
+    {% if settings.product_grid_layout == '4-col' %}
+      {% assign grid_item_width = '3' %}
+    {% elsif settings.product_grid_layout == '3-col' %}
+      {% assign grid_item_width = '4' %}
+    {% else %}
+      {% assign grid_item_width = '6' %}
+    {% endif %}
+      <ul class="products row" id="related_product">
+        {% for product in collections[settings.featured_collection].products | limit:4 %}
+          {% include 'product-loop' %}
+        {% else %}
+          {% include 'dummy-products' %}
+        {% endfor %}
+				<li class="col-sm-12">
+					<div class="show-more-line">
+						<a href="javascript:void(0)" class="button" onclick="show_product_related()">+</a>
+					</div>
+        </li>
+				 {% for product in collections[settings.featured_collection].products | offset:4 | limit:4 %}
+          {% include 'product-loop-home' %}
+        {% else %}
+          {% include 'dummy-products' %}
+        {% endfor %}
+      </ul>
+    {% endif %}
+		<script>	
+			function show_product_related(){
+				$('#related_product').find('li').removeClass('hidden');
+				$('.show-more-line').addClass('hidden');
+			}
+		</script>
+    {% if settings.use_blog_entries %}
+    <h2 class="align-center unbranded">{{ settings.home_blog_title }}</h2>
+    <div class="gap-40"></div>
+    {% if settings.home_entry_format == '4-col' %}
+      {% assign blog_item_width = '3' %}
+    {% elsif settings.home_entry_format == '3-col' %}
+      {% assign blog_item_width = '4' %}
+    {% else %}
+      {% assign blog_item_width = '6' %}
+    {% endif %}
+    
+    <div class="row blog-home">
+      {% for article in blogs[settings.blog_title].articles limit:settings.home_number_of_entries %}
+        {% include 'blog-loop' %}
+      {% endfor %}
+    </div>
+
+    {% endif %}
+
+  </div>
+</section>

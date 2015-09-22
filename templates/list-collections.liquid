@@ -1,0 +1,25 @@
+<section id="content">
+    <div class="container">
+
+      {% include 'breadcrumb' %}
+
+      <h1 class="page-title">Collections</h1>
+
+      {% if settings.product_grid_layout == '4-col' %}
+      {% assign grid_item_width = '3' %}
+      {% elsif settings.product_grid_layout == '3-col' %}
+      {% assign grid_item_width = '4' %}
+      {% else %}
+      {% assign grid_item_width = '6' %}
+      {% endif %}
+      
+      <ul class="products row">
+        {% for collection in collections %}
+        {% unless collection.handle == 'frontpage' %}
+        {% include 'collection-loop' %}
+        {% endunless %}
+        {% endfor %}
+      </ul>
+      
+	</div>
+</section>

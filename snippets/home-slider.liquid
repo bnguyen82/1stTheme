@@ -1,0 +1,68 @@
+<!-- masterslider -->
+<div class="master-slider ms-skin-default" id="masterslider">
+  {% assign number_of_slides = 7 %}
+  	{% for i in (1..number_of_slides) %}
+      {% capture slide_enabled %}slideshow_{{ i }}_active{% endcapture %}
+      {% capture slide_image %}slideshow_{{ i }}.jpg{% endcapture %}
+      {% capture slide_image_alt %}slideshow_{{ i }}_alt{% endcapture %}
+  	  {% capture slide_pattern %}slideshow_{{ i }}_pattern{% endcapture %}
+      {% capture slide_caption %}slideshow_{{ i }}_caption_active{% endcapture %}
+      {% capture slide_title %}slideshow_{{ i }}_title{% endcapture %}
+      {% capture slide_subtitle %}slideshow_{{ i }}_subtitle{% endcapture %}
+      {% capture slide_button %}slideshow_{{ i }}_button_text{% endcapture %}
+      {% capture slide_link %}slideshow_{{ i }}_link{% endcapture %}
+      {% if settings[slide_enabled] %}
+    	<!-- new slide -->
+          <div class="ms-slide" data-delay="8">
+            
+            {% if settings[slide_pattern] %}
+            <!-- slide pattern -->
+            <div class="slide-pattern"></div>
+            {% endif %}
+            
+            <!-- slide background -->
+            <img src="{{ 'blank.gif' | asset_url }}" data-src="{{ slide_image | asset_url }}" alt="{{ settings[slide_image_alt] }}"/>    
+            
+            {% if settings[slide_caption] %}
+            <!-- slide text layer -->
+            <h3 class="ms-layer"
+              	data-offset-x= "100"
+                data-offset-y= "-80"
+                data-origin = "mr"
+                data-effect="right(250)"
+                data-duration="3500"
+                data-delay="600"
+                data-ease="easeOutExpo"
+            >{{ settings[slide_title] }}</h3>
+             
+            <h4 class="ms-layer"
+              	data-offset-x= "100"
+                data-offset-y= "0"
+                data-origin = "mr"
+                data-effect="left(short)"
+                data-duration="3500"
+                data-delay="1500"
+                data-ease="easeOutExpo"
+            >{{ settings[slide_subtitle] }}</h4>
+            
+            <div class="ms-layer"
+              	data-offset-x= "100"
+                data-offset-y= "75"
+                data-origin = "mr"
+                data-effect="rotateright(20,120,br)"
+                data-duration="3500"
+                data-delay="2100"
+                data-ease="easeOutExpo"
+              >
+              <a class="btn btn-primary">{{ settings[slide_button] }}</a>
+            </div>
+            {% endif %} 
+            <!-- linked slide -->
+            <a href="{{ settings[slide_link] }}">{{ settings[slide_button] }}</a>
+               
+          </div>
+        <!-- end of slide -->
+  	  {% endif %} 	      
+    {% endfor %}
+</div>
+<!-- end of masterslider -->

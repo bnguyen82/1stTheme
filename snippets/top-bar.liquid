@@ -1,0 +1,47 @@
+<div id="top-bar">
+  <div class="container">
+   
+    <div class="col-sm-6 hidden-xs">
+      <nav>
+        <ul class="list-inline">
+           {% if shop.customer_accounts_enabled %}
+          <li>
+            {% if customer %}
+               <a href="/account">Chào {{ customer.first_name }}</a>! ({{ 'Thoát' | customer_logout_link }})
+            {% else %}
+              Chào! Hãy {{ 'Đăng nhập' | customer_login_link }}
+              hoặc {{ 'Đăng ký' | customer_register_link }}
+            {% endif %}
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+    </div>
+    <!-- /.col-sm-6 -->
+ 
+    <div class="col-md-3 col-sm-4 hidden-xs">
+      {% include 'search-bar' %}
+    </div>
+
+    <div class="col-md-3 col-sm-2 hidden-xs">
+      <div class="cart-inner">
+          <strong class="cart-name hidden-sm">Giỏ hàng / </strong>
+            <span id="cartCost" class="hidden-sm">{{ cart.total_price | money }}</span>
+            <div class="cart-icon">
+              <a id="cartToggle" class="cart-link" href="#"><strong>{{ cart.item_count }}</strong></a>
+              <span class="cart-icon-handle"></span>
+            </div>
+        
+      </div>
+    </div><!-- /.col-sm-3 -->  
+  </div>
+
+  <div class="mobile-icons visible-xs ">
+    <ul>
+      <li><a href="/pages/contact-us"><i class="fa fa-envelope"></i></a></li>
+      <li><a href="/search"><i class="fa fa-search"></i></a></li>
+      <li><a href="/account"><i class="fa fa-user"></i></a></li>
+      <li><a href="/cart"><i class="fa fa-shopping-cart"></i></a></li>
+    </ul>
+  </div><!-- /mobile-icons -->
+</div><!-- / #top-bar -->

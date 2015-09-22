@@ -1,0 +1,36 @@
+{% assign on_sale = false %}
+{% if item.available and item.compare_at_price > item.price %}
+  {% assign on_sale = true %}
+{% endif %}
+
+{% assign sold_out = true %}
+{% if item.available  %}
+  {% assign sold_out = false %}
+{% endif %}
+
+<li class="col-md-3 col-sm-4 element">
+  <div class="product">
+    <div class="thumbnail">
+      {% if on_sale %}
+      <div class="on-sale">Sale</div>
+      {% endif %}
+      {% if sold_out %}
+        <div class="sold-out">Hết hàng</div>
+      {% endif %}
+      <a href="{{ item.url }}" title="{{ item.title | escape }}">
+       {{ item.featured_image.src | product_img_url: 'large' | img_tag: item.featured_image.alt }}
+      </a>
+    </div>
+    <hr>
+    <div class="title">
+      <h3>{{ item.title | link_to: item.url }}</h3>
+      {% if settings.product_reviews %}
+       <span class="haravan-product-reviews-badge" data-id="{{ item.id }}"></span> 
+       {% endif %}
+      {% if settings.show_grid_vendor %}
+      <p>by {{ item.vendor }}</p>
+      {% endif %}
+    </div>
+    <span class="price pull-right">{% if on_sale %}<span class="compare-price">{{ item.compare_at_price | money }}</span>{% endif %} <span itemprop="price">{{ item.price | money }}</span></span>
+  </div>
+</li>
