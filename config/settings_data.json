@@ -68,8 +68,10 @@
         "sidebar_blog_sale_title": "On Sale",
         "google_lat": "37.783914",
         "google_long": "-122.403297",
-        "footer_3_text": "Công ty TNHH Giày Trung Cường </br> Văn phòng & xưởng sản xuất: 385/50 Quang Trung, P10, Gò Vấp, TpHCM </br> Điện thoại: (08)38 943 650 <br/> Email: giaybaphi@gmail.com <br/> Hướng dẫn đường đi tại đây",
-        "newsletter_text": "Sign up for our newsletter and be the first to know about coupons and special promotions.",
+        "footer_3_text": "Công ty TNHH Giày Trung Cường </br> Văn phòng và xưởng sản xuất: 379/50 Quang Trung, P10, Gò Vấp TpHCM </br>
+         Điện thoại: (08)38 943 650 <br/> Email: giaybaphi@gmail.com <br/>
+          Hướng dẫn đường đi tại <a href=\"https://www.google.com/maps/place/10%C2%B049'46.0%22N+106%C2%B040'05.4%22E/@10.8292404,106.6679422,198m/data=!3m1!1e3!4m2!3m1!1s0x0:0x0\">đây</a>",
+        "newsletter_text": "Hãy đăng ký email của bạn để chúng tôi gửi những thông tin cập nhật mới nhất.",
         "slideshow_1_subtitle": "15% off Maternity Collection",
         "slideshow_2_subtitle": "Great savings on summer dresses",
         "slideshow_3_subtitle": "Stock up now and save",
@@ -375,7 +377,7 @@
             "show_top_bar": "false",
             "show_top_bar_links": "false",
             "show_top_bar_social": "false",
-            "footer_newsletter_title": "Stay in Touch",
+            "footer_newsletter_title": "Đăng ký nhận ưu đãi",
             "footer_display_newsletter": "true",
             "footer_contact_title": "Contact Us",
             "footer_contact_text": "",
