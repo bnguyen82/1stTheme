@@ -1,5 +1,5 @@
 
-/* customer address helper */
+/* customer address helper - baonht*/
 Haravan.CustomerAddress = {
     toggleForm: function (id) {
         var editEl = document.getElementById('edit_address_' + id);
